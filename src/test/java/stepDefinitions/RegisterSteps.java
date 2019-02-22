@@ -7,7 +7,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumberOption.Hooks;
 import pages.LoginPage;
-import pages.PageFactory;
+import pages.PageManagement;
 import pages.RegisterPage;
 
 public class RegisterSteps extends AbstractTest {
@@ -21,7 +21,7 @@ public class RegisterSteps extends AbstractTest {
 
 	public RegisterSteps() {
 		driver = Hooks.openBrowser();
-		loginPage = PageFactory.getLoginPage(driver);
+		loginPage = PageManagement.getLoginPage(driver);
 
 	}
 

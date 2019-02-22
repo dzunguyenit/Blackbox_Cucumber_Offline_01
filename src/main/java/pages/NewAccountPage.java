@@ -2,19 +2,18 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbstractPage;
+import commons.CommonFuntions;
 import interfaces.AccountUI;
 
-public class NewAccountPage extends AbstractPage {
-	WebDriver driver;
+public class NewAccountPage extends CommonFuntions {
 
 	public NewAccountPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	public String getTextDeposit() {
-		waitForControlVisible(driver, AccountUI.CURRENTDEPOSIT_LBL);
-		return getTextElement(driver, AccountUI.CURRENTDEPOSIT_LBL);
+		waitForControlVisible(AccountUI.CURRENTDEPOSIT_LBL);
+		return getTextElement(AccountUI.CURRENTDEPOSIT_LBL);
 	}
 
 }

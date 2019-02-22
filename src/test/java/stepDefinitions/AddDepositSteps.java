@@ -6,7 +6,7 @@ import commons.AbstractTest;
 import cucumber.api.java.en.Then;
 import cucumberOption.Hooks;
 import pages.DepositPage;
-import pages.PageFactory;
+import pages.PageManagement;
 
 public class AddDepositSteps extends AbstractTest {
 	private DepositPage depositPage;
@@ -17,7 +17,7 @@ public class AddDepositSteps extends AbstractTest {
 
 	public AddDepositSteps() {
 		driver = Hooks.openBrowser();
-		depositPage = PageFactory.getDepositPage(driver);
+		depositPage = PageManagement.getDepositPage(driver);
 	}
 
 	@Then("^Verify Current balance is \"(.*?)\"$")

@@ -6,7 +6,7 @@ import commons.AbstractTest;
 import cucumber.api.java.en.Then;
 import cucumberOption.Hooks;
 import pages.NewAccountPage;
-import pages.PageFactory;
+import pages.PageManagement;
 
 public class CreateAccountSteps extends AbstractTest {
 	private NewAccountPage newAccountPage;
@@ -17,7 +17,7 @@ public class CreateAccountSteps extends AbstractTest {
 
 	public CreateAccountSteps() {
 		driver = Hooks.openBrowser();
-		newAccountPage = PageFactory.getNewAccountPage(driver);
+		newAccountPage = PageManagement.getNewAccountPage(driver);
 	}
 
 	@Then("^Verify deposit with value \"(.*?)\"$")

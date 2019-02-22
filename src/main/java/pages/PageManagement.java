@@ -2,9 +2,7 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbstractPage;
-
-public class PageFactory extends AbstractPage {
+public class PageManagement {
 	private static LoginPage loginPage;
 	private static RegisterPage registerPage;
 	private static HomePage homePage;

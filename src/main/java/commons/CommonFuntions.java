@@ -22,13 +22,19 @@ import interfaces.AbstractPageUI;
 import pages.DepositPage;
 import pages.HomePage;
 import pages.NewAccountPage;
-import pages.PageFactory;
+import pages.PageManagement;
 
-public class AbstractPage {
+public class CommonFuntions {
+	protected WebDriver driver;
+
+	public CommonFuntions(WebDriver driver) {
+		this.driver = driver;
+	}
+
 	private int timeouts = 20;
 
 	// Web Browser
-	protected void openUrl(WebDriver driver, String url) {
+	protected void openUrl(String url) {
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
@@ -66,7 +72,7 @@ public class AbstractPage {
 	}
 
 	// Web Element
-	protected void clickToElement(WebDriver driver, String locator) {
+	protected void clickToElement(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.click();
@@ -76,7 +82,7 @@ public class AbstractPage {
 
 	}
 
-	protected void clickToElement(WebDriver driver, String locator, String... value) {
+	protected void clickToElement(String locator, String... value) {
 		try {
 			String dynamicLocator = String.format(locator, (Object[]) value);
 			WebElement element = driver.findElement(By.xpath(dynamicLocator));
@@ -86,11 +92,11 @@ public class AbstractPage {
 		}
 	}
 
-	protected String getTextElement(WebDriver driver, String locator, String... value) {
+	protected String getTextElement(String locator, String... value) {
 		String text = null;
 		try {
 			String dynamicLocator = String.format(locator, (Object[]) value);
-			return getTextElement(driver, dynamicLocator);
+			return getTextElement(dynamicLocator);
 		} catch (Exception e) {
 			LogFactory.error("Element is cann't get text " + e.getMessage());
 		}
@@ -98,7 +104,7 @@ public class AbstractPage {
 	}
 
 	// Clear and sendkey
-	protected void sendKeyToElement(WebDriver driver, String locator, String value) {
+	protected void sendKeyToElement(String locator, String value) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.clear();
@@ -108,8 +114,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void clearAndSendKeyToElementDynamicTextbox(WebDriver driver, String locator, String text,
-			String... value) {
+	protected void clearAndSendKeyToElementDynamicTextbox(String locator, String text, String... value) {
 		try {
 			locator = String.format(locator, (Object[]) value);
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -120,8 +125,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void clearAndSendKeyPressToElementDynamicTextbox(WebDriver driver, String locator, Keys key,
-			String... value) {
+	protected void clearAndSendKeyPressToElementDynamicTextbox(String locator, Keys key, String... value) {
 		try {
 			locator = String.format(locator, (Object[]) value);
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -132,7 +136,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void sendKeyToElementDynamicTextbox(WebDriver driver, String locator, String text, String... value) {
+	protected void sendKeyToElementDynamicTextbox(String locator, String text, String... value) {
 		try {
 			locator = String.format(locator, (Object[]) value);
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -142,7 +146,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void sendKeyToElementDonotClear(WebDriver driver, String locator, String value) {
+	protected void sendKeyToElementDonotClear(String locator, String value) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.sendKeys(value);
@@ -151,7 +155,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void selectItemInDropdown(WebDriver driver, String locator, String value) {
+	protected void selectItemInDropdown(String locator, String value) {
 		try {
 			Select element = new Select(driver.findElement(By.xpath(locator)));
 			element.selectByVisibleText(value);
@@ -160,8 +164,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void selectItemInDynamicDropdown(WebDriver driver, String locator, String valueDropdown,
-			String... value) {
+	protected void selectItemInDynamicDropdown(String locator, String valueDropdown, String... value) {
 		try {
 			locator = String.format(locator, (Object[]) value);
 			Select element = new Select(driver.findElement(By.xpath(locator)));
@@ -171,7 +174,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void selectItemInDropdownSpecial(WebDriver driver, String locatorDropdown, String locator, String value) {
+	protected void selectItemInDropdownSpecial(String locatorDropdown, String locator, String value) {
 		try {
 			WebElement dropdown = driver.findElement(By.xpath(locatorDropdown));
 			dropdown.click();
@@ -188,7 +191,7 @@ public class AbstractPage {
 
 	}
 
-	protected String getFirstItemSelected(WebDriver driver, String locator) {
+	protected String getFirstItemSelected(String locator) {
 		String text = null;
 		try {
 			Select element = new Select(driver.findElement(By.xpath(locator)));
@@ -199,7 +202,7 @@ public class AbstractPage {
 		return text;
 	}
 
-	protected String getAtribute(WebDriver driver, String locator, String attribute) {
+	protected String getAtribute(String locator, String attribute) {
 		String text = null;
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -210,7 +213,7 @@ public class AbstractPage {
 		return text;
 	}
 
-	protected String getTextElement(WebDriver driver, String locator) {
+	protected String getTextElement(String locator) {
 		String text = null;
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -221,7 +224,7 @@ public class AbstractPage {
 		return text;
 	}
 
-	protected String getTextDynamicElement(WebDriver driver, String locator, String... value) {
+	protected String getTextDynamicElement(String locator, String... value) {
 		String text = null;
 		try {
 			locator = String.format(locator, (Object[]) value);
@@ -233,7 +236,7 @@ public class AbstractPage {
 		return text;
 	}
 
-	protected int getSize(WebDriver driver, String locator) {
+	protected int getSize(String locator) {
 		int size = 0;
 		try {
 			List<WebElement> element = driver.findElements(By.xpath(locator));
@@ -244,7 +247,7 @@ public class AbstractPage {
 		return size;
 	}
 
-	protected void uncheckTheCheckbox(WebDriver driver, String locator) {
+	protected void uncheckTheCheckbox(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			if (element.isSelected())
@@ -254,7 +257,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected boolean isControlDisplayed(WebDriver driver, String locator, String... value) {
+	protected boolean isControlDisplayed(String locator, String... value) {
 		boolean result = false;
 		try {
 			String dynamicLocator = String.format(locator, (Object[]) value);
@@ -266,7 +269,7 @@ public class AbstractPage {
 		return result;
 	}
 
-	protected boolean isControlDisplayed(WebDriver driver, String locator) {
+	protected boolean isControlDisplayed(String locator) {
 		boolean result = false;
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -277,7 +280,7 @@ public class AbstractPage {
 		return result;
 	}
 
-	protected boolean isControlSelected(WebDriver driver, String locator) {
+	protected boolean isControlSelected(String locator) {
 		boolean result = false;
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -288,7 +291,7 @@ public class AbstractPage {
 		return result;
 	}
 
-	protected boolean isControlEnabled(WebDriver driver, String locator) {
+	protected boolean isControlEnabled(String locator) {
 		boolean result = false;
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
@@ -329,7 +332,7 @@ public class AbstractPage {
 		return text;
 	}
 
-	protected void sendKeyAlert(WebDriver driver, String value) {
+	protected void sendKeyAlert(String value) {
 		try {
 			Alert alert = driver.switchTo().alert();
 			alert.sendKeys(value);
@@ -339,7 +342,7 @@ public class AbstractPage {
 	}
 
 	// Windows
-	protected void switchWindowByID(WebDriver driver, String parent) {
+	protected void switchWindowByID(String parent) {
 		try {
 			Set<String> allWindows = driver.getWindowHandles();
 			for (String childWindows : allWindows) {
@@ -353,7 +356,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void switchWindowByTitle(WebDriver driver, String title) {
+	protected void switchWindowByTitle(String title) {
 		try {
 			Set<String> allWindows = driver.getWindowHandles();
 			for (String childWindows : allWindows) {
@@ -369,7 +372,7 @@ public class AbstractPage {
 	}
 
 	// Bonus
-	protected boolean closeAllWindowsWithoutParent(WebDriver driver, String parent) {
+	protected boolean closeAllWindowsWithoutParent(String parent) {
 		try {
 			Set<String> allWindows = driver.getWindowHandles();
 			for (String childWindows : allWindows) {
@@ -401,7 +404,7 @@ public class AbstractPage {
 	}
 
 	// Iframe
-	protected void switchToIframe(WebDriver driver, String locator) {
+	protected void switchToIframe(String locator) {
 		try {
 			WebElement iframe = driver.findElement(By.xpath(locator));
 			driver.switchTo().frame(iframe);
@@ -419,7 +422,7 @@ public class AbstractPage {
 	}
 
 	// Actions
-	protected void doubleClick(WebDriver driver, String locator) {
+	protected void doubleClick(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -429,7 +432,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void hoverMouse(WebDriver driver, String locator) {
+	protected void hoverMouse(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -439,7 +442,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void hoverMouse(WebDriver driver, String locator, String... value) {
+	protected void hoverMouse(String locator, String... value) {
 		try {
 			String dynamicLocator = String.format(locator, (Object[]) value);
 			WebElement element = driver.findElement(By.xpath(dynamicLocator));
@@ -450,7 +453,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void rightClick(WebDriver driver, String locator) {
+	protected void rightClick(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -460,7 +463,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void dragAndDrop(WebDriver driver, String locatorFrom, String locatorTarget) {
+	protected void dragAndDrop(String locatorFrom, String locatorTarget) {
 		try {
 			WebElement dragFrom = driver.findElement(By.xpath(locatorFrom));
 			WebElement target = driver.findElement(By.xpath(locatorTarget));
@@ -473,7 +476,7 @@ public class AbstractPage {
 	}
 
 	// Bonus
-	protected void clickAndHold(WebDriver driver, int itemFrom, int itemTarget, String locator) {
+	protected void clickAndHold(int itemFrom, int itemTarget, String locator) {
 		try {
 			List<WebElement> listItems = driver.findElements(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -485,7 +488,7 @@ public class AbstractPage {
 	}
 
 	// Key Press
-	protected void keyDownElement(WebDriver driver, String locator, Keys pressKeyDown) {
+	protected void keyDownElement(String locator, Keys pressKeyDown) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -495,7 +498,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void keyUpElement(WebDriver driver, String locator, Keys pressKeyUp) {
+	protected void keyUpElement(String locator, Keys pressKeyUp) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			Actions action = new Actions(driver);
@@ -505,7 +508,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void sendKeyPress(WebDriver driver, String locator, Keys key) {
+	protected void sendKeyPress(String locator, Keys key) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.sendKeys(key);
@@ -514,7 +517,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void clearAndSendKeyPress(WebDriver driver, String locator, Keys key) {
+	protected void clearAndSendKeyPress(String locator, Keys key) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.clear();
@@ -525,7 +528,7 @@ public class AbstractPage {
 	}
 
 	// Upload
-	protected void uploadFile(WebDriver driver, String locator, String firePath) {
+	protected void uploadFile(String locator, String firePath) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.sendKeys(firePath);
@@ -535,7 +538,7 @@ public class AbstractPage {
 	}
 
 	// Javascript
-	protected Object executeJavascriptToBrowser(WebDriver driver, String javaSript) {
+	protected Object executeJavascriptToBrowser(String javaSript) {
 		Object object = null;
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -546,7 +549,7 @@ public class AbstractPage {
 		return object;
 	}
 
-	protected Object executeJavascriptToElement(WebDriver driver, String locator) {
+	protected Object executeJavascriptToElement(String locator) {
 		Object object = null;
 		WebElement element = driver.findElement(By.xpath(locator));
 		try {
@@ -558,7 +561,7 @@ public class AbstractPage {
 		return object;
 	}
 
-	protected Object executeJavascriptToElement(WebDriver driver, String locator, String... value) {
+	protected Object executeJavascriptToElement(String locator, String... value) {
 		Object object = null;
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
@@ -582,7 +585,7 @@ public class AbstractPage {
 		return object;
 	}
 
-	protected Object scrollToElement(WebDriver driver, String locator) {
+	protected Object scrollToElement(String locator) {
 		Object object = null;
 		WebElement element = driver.findElement(By.xpath(locator));
 		try {
@@ -595,7 +598,7 @@ public class AbstractPage {
 	}
 
 	// Bonus
-	protected void highlightElement(WebDriver driver, String locator) {
+	protected void highlightElement(String locator) {
 		try {
 			WebElement element = driver.findElement(By.xpath(locator));
 			JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -606,7 +609,7 @@ public class AbstractPage {
 	}
 
 	// Bonus
-	protected Object removeAttributeInDOM(WebDriver driver, String locator, String attribute) {
+	protected Object removeAttributeInDOM(String locator, String attribute) {
 		Object object = null;
 		WebElement element = driver.findElement(By.xpath(locator));
 		try {
@@ -619,7 +622,7 @@ public class AbstractPage {
 	}
 
 	// Wait
-	protected void waitForControlPresence(WebDriver driver, String locator) {
+	protected void waitForControlPresence(String locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			By by = By.xpath(locator);
@@ -629,7 +632,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForControlVisible(WebDriver driver, String locator) {
+	protected void waitForControlVisible(String locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			By by = By.xpath(locator);
@@ -639,7 +642,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForIframeVisible(WebDriver driver, String locator) {
+	protected void waitForIframeVisible(String locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			By by = By.xpath(locator);
@@ -649,7 +652,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForControlVisible(WebDriver driver, String locator, String... value) {
+	protected void waitForControlVisible(String locator, String... value) {
 		try {
 			String dynamicLocator = String.format(locator, (Object[]) value);
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
@@ -660,7 +663,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForControlClickable(WebDriver driver, String locator) {
+	protected void waitForControlClickable(String locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			By by = By.xpath(locator);
@@ -670,7 +673,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForControlInvisible(WebDriver driver, String locator) {
+	protected void waitForControlInvisible(String locator) {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			By by = By.xpath(locator);
@@ -680,7 +683,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void waitForAlertPresence(WebDriver driver) {
+	protected void waitForAlertPresence() {
 		try {
 			WebDriverWait wait = new WebDriverWait(driver, timeouts);
 			wait.until(ExpectedConditions.alertIsPresent());
@@ -689,7 +692,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected boolean sortElementAcsending(WebDriver driver, String locator) {
+	protected boolean sortElementAcsending(String locator) {
 		try {
 			List<WebElement> list = driver.findElements(By.xpath(locator));
 			int length = list.size();
@@ -705,7 +708,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected boolean sortElementDescending(WebDriver driver, String locator) {
+	protected boolean sortElementDescending(String locator) {
 		try {
 			List<WebElement> list = driver.findElements(By.xpath(locator));
 			int length = list.size();
@@ -721,7 +724,7 @@ public class AbstractPage {
 		}
 	}
 
-	protected void swapElement(WebDriver driver, String locator) {
+	protected void swapElement(String locator) {
 		try {
 			List<WebElement> list = driver.findElements(By.xpath(locator));
 			int temp;
@@ -755,46 +758,46 @@ public class AbstractPage {
 	}
 
 	public void openNewCustomerPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "New Customer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "New Customer");
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "New Customer");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "New Customer");
 	}
 
 	public void openEditCustomerPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
 	}
 
 	public HomePage openHomePage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Manager");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Manager");
-		return PageFactory.getHomePage(driver);
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Manager");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Manager");
+		return PageManagement.getHomePage(driver);
 	}
 
 	public NewAccountPage openNewAccountPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "New Account");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "New Account");
-		return PageFactory.getNewAccountPage(driver);
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "New Account");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "New Account");
+		return PageManagement.getNewAccountPage(driver);
 	}
 
 	public DepositPage openDepositPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Deposit");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Deposit");
-		return PageFactory.getDepositPage(driver);
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Deposit");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Deposit");
+		return PageManagement.getDepositPage(driver);
 	}
 
 	public void openWithDrawPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
 	}
 
 	public void openFundTransferPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
 	}
 
 	public void openBalanceEnquiryPage(WebDriver driver) {
-		waitForControlVisible(driver, AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
-		clickToElement(driver, AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
+		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
+		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
 	}
 
 }

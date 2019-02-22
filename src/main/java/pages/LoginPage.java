@@ -2,14 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbstractPage;
+import commons.CommonFuntions;
 import interfaces.LoginPageUI;
 
-public class LoginPage extends AbstractPage {
-	WebDriver driver;
+public class LoginPage extends CommonFuntions {
 
 	public LoginPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	public String getLoginPageUrl() {
@@ -24,9 +23,9 @@ public class LoginPage extends AbstractPage {
 		// e.printStackTrace();
 		// }
 		// }
-		waitForControlVisible(driver, LoginPageUI.HERE_LINK);
-		clickToElement(driver, LoginPageUI.HERE_LINK);
-		return PageFactory.getRegisterPage(driver);
+		waitForControlVisible(LoginPageUI.HERE_LINK);
+		clickToElement(LoginPageUI.HERE_LINK);
+		return PageManagement.getRegisterPage(driver);
 	}
 
 }

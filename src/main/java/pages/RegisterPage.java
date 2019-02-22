@@ -2,28 +2,27 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbstractPage;
+import commons.CommonFuntions;
 import interfaces.RegisterPageUI;
 
-public class RegisterPage extends AbstractPage {
-	WebDriver driver;
+public class RegisterPage extends CommonFuntions {
 
 	public RegisterPage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	public String getUserIDInfo() {
-		waitForControlVisible(driver, RegisterPageUI.USER_ID_TEXT);
-		return getTextElement(driver, RegisterPageUI.USER_ID_TEXT);
+		waitForControlVisible(RegisterPageUI.USER_ID_TEXT);
+		return getTextElement(RegisterPageUI.USER_ID_TEXT);
 	}
 
 	public String getPasswordIDInfo() {
-		waitForControlVisible(driver, RegisterPageUI.PASSWORD_ID_TEXT);
-		return getTextElement(driver, RegisterPageUI.PASSWORD_ID_TEXT);
+		waitForControlVisible(RegisterPageUI.PASSWORD_ID_TEXT);
+		return getTextElement(RegisterPageUI.PASSWORD_ID_TEXT);
 	}
 
 	public LoginPage openLoginPage(String url) {
-		openUrl(driver, url);
-		return PageFactory.getLoginPage(driver);
+		openUrl(url);
+		return PageManagement.getLoginPage(driver);
 	}
 }

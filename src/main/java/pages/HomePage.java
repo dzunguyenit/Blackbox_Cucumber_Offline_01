@@ -2,14 +2,13 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-import commons.AbstractPage;
+import commons.CommonFuntions;
 import interfaces.LoginPageUI;
 
-public class HomePage extends AbstractPage {
-	WebDriver driver;
+public class HomePage extends CommonFuntions {
 
 	public HomePage(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	public String getLoginPageUrl() {
@@ -17,8 +16,8 @@ public class HomePage extends AbstractPage {
 	}
 
 	public RegisterPage clickHereLink() {
-		waitForControlVisible(driver, LoginPageUI.HERE_LINK);
-		clickToElement(driver, LoginPageUI.HERE_LINK);
+		waitForControlVisible(LoginPageUI.HERE_LINK);
+		clickToElement(LoginPageUI.HERE_LINK);
 		return new RegisterPage(driver);
 	}
 
