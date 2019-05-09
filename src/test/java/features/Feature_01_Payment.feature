@@ -85,22 +85,22 @@ Feature: Payment feature
     #after withdraw money: "40000"
     And Verify money after withdraw is "//*[contains(text(),'Current Balance')]/following-sibling::td"
 
-  @fundTransfer
-  Scenario: Fund Transfer
-    Given I open "Fund Transfer" page
-    When I input with variable data "accountID" to "//*[@name='payersaccount']" textbox
-    And I input with variable data "accountIDPayee" to "//*[@name='payeeaccount']" textbox
-    And I input with data "10000" to "//*[@name='ammount']" textbox
-    And I input with data "Transfer" to "//*[@name='desc']" textbox
-    And I click to "//*[@name='AccSubmit']" button
-    Then Verify successfully with message "//*[contains(text(),'Fund Transfer Details')]"
-    # Money transfer: 10000
-    And Verify money transfer is "//*[contains(text(),'Amount')]/following-sibling::td"
-
-  @balanceEnquiry
-  Scenario: Balance enquiry
-    Given I open "Balance Enquiry" page
-    When I input with variable data "accountID" to "//*[@name='accountno']" textbox
-    And I click to "//*[@name='AccSubmit']" button
-    # Current transfer: 30000
-    Then Verify current balance is "//*[contains(text(),'Balance')]/following-sibling::td"
+#  @fundTransfer
+#  Scenario: Fund Transfer
+#    Given I open "Fund Transfer" page
+#    When I input with variable data "accountID" to "//*[@name='payersaccount']" textbox
+#    And I input with variable data "accountIDPayee" to "//*[@name='payeeaccount']" textbox
+#    And I input with data "10000" to "//*[@name='ammount']" textbox
+#    And I input with data "Transfer" to "//*[@name='desc']" textbox
+#    And I click to "//*[@name='AccSubmit']" button
+#    Then Verify successfully with message "//*[contains(text(),'Fund Transfer Details')]"
+#    # Money transfer: 10000
+#    And Verify money transfer is "//*[contains(text(),'Amount')]/following-sibling::td"
+#
+#  @balanceEnquiry
+#  Scenario: Balance enquiry
+#    Given I open "Balance Enquiry" page
+#    When I input with variable data "accountID" to "//*[@name='accountno']" textbox
+#    And I click to "//*[@name='AccSubmit']" button
+#    # Current transfer: 30000
+#    Then Verify current balance is "//*[contains(text(),'Balance')]/following-sibling::td"

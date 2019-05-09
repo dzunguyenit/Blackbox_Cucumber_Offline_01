@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractTest;
 import cucumber.api.java.en.Then;
-import cucumberOption.Hooks;
+import cucumberOption.WebDriverManager;
 import pages.NewAccountPage;
 import pages.PageManagement;
 
@@ -16,7 +16,7 @@ public class CreateAccountSteps extends AbstractTest {
 	public static int depositInit;
 
 	public CreateAccountSteps() {
-		driver = Hooks.openBrowser();
+		driver = WebDriverManager.openBrowser();
 		newAccountPage = PageManagement.getNewAccountPage(driver);
 	}
 

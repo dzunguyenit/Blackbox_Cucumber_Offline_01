@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import commons.AbstractTest;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import cucumberOption.Hooks;
+import cucumberOption.WebDriverManager;
 import pages.LoginPage;
 import pages.PageManagement;
 import pages.RegisterPage;
@@ -20,7 +20,7 @@ public class RegisterSteps extends AbstractTest {
 	WebDriver driver;
 
 	public RegisterSteps() {
-		driver = Hooks.openBrowser();
+		driver = WebDriverManager.openBrowser();
 		loginPage = PageManagement.getLoginPage(driver);
 
 	}

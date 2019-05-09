@@ -3,13 +3,13 @@ package stepDefinitions;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import commons.CommonFuntions;
 import commons.AbstractTest;
+import commons.CommonFuntions;
 import commons.Data;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumberOption.Hooks;
+import cucumberOption.WebDriverManager;
 import pages.AbtractPageObject;
 import pages.PageManagement;
 
@@ -22,7 +22,7 @@ public class AbtractPageSteps extends AbstractTest {
 	private CommonFuntions abstractPage;
 
 	public AbtractPageSteps() {
-		driver = Hooks.openBrowser();
+		driver = WebDriverManager.openBrowser();
 		abtractPageObject = PageManagement.getAbtractPageObject(driver);
 		abstractPage = new CommonFuntions(driver);
 

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import commons.AbstractTest;
 import cucumber.api.java.en.Then;
-import cucumberOption.Hooks;
+import cucumberOption.WebDriverManager;
 import pages.DepositPage;
 import pages.PageManagement;
 
@@ -16,7 +16,7 @@ public class AddDepositSteps extends AbstractTest {
 	public static int sumDeposit;
 
 	public AddDepositSteps() {
-		driver = Hooks.openBrowser();
+		driver = WebDriverManager.openBrowser();
 		depositPage = PageManagement.getDepositPage(driver);
 	}
 
