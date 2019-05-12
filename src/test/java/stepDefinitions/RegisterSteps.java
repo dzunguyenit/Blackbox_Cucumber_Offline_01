@@ -31,15 +31,25 @@ public class RegisterSteps extends AbstractTest {
 		registerPage = loginPage.clickHereLink();
 	}
 
-	@When("^I register email$")
+	@When("^I input email \"(.*?)\"$")
+	public void clearAndInputDynamicTextbox(String dataValue) {
+		registerPage.inputEmail(dataValue + randomEmail() + "@gmail.com");
+	}
+
+	@When("^I click to submit button$")
+	public void i_click_to_submit_button() {
+		registerPage.clickSubmit();
+	}
+
+	@When("^I get email and password$")
 	public void i_input_email_to_register() {
 		usernameLogin = registerPage.getUserIDInfo();
 		passwordLogin = registerPage.getPasswordIDInfo();
 	}
 
-	@When("^I open login page$")
-	public void i_Open_Login_Page() {
-		loginPage = registerPage.openLoginPage(loginURL);
-	}
+//	@When("^I open login page$")
+//	public void i_Open_Login_Page() {
+//		loginPage = registerPage.openLoginPage(loginURL);
+//	}
 
 }

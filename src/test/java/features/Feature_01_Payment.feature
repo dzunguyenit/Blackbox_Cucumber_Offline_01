@@ -7,13 +7,11 @@ Feature: Payment feature
 @CreateAccountAndLogin 
 Scenario: Create account, login and verify login successfully 
 	Given I navigate to Guru bank and click Here link 
-	When I input with data "randomEmail" to "//*[@name='emailid']" textbox 
-	And I click to "//*[@name='btnLogin']" button 
-	And I register email 
-	And I open login page 
-	And I input with variable data "usernameLogin" to "//*[@name='uid']" textbox 
-	And I input with variable data "passwordLogin" to "//*[@name='password']" textbox 
-	And I click to "//*[@name='btnLogin']" button 
+	When I input email "randomEmail" 
+	And I click to submit button 
+	And I get email and password 
+	And I navigate to Log In page "http://demo.guru99.com/v4/"
+	And I log in system 
 	
 @newCustomer 
 Scenario Outline: Create new Customer and get NewCustomerID 

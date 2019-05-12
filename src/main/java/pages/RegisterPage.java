@@ -21,6 +21,16 @@ public class RegisterPage extends CommonFuntions {
 		return getTextElement(RegisterPageUI.PASSWORD_ID_TEXT);
 	}
 
+	public void inputEmail(String value) {
+		waitForControlVisible(RegisterPageUI.EMAIL_REGISTER_TXT);
+		sendKeyToElement(RegisterPageUI.EMAIL_REGISTER_TXT, value);
+	}
+
+	public void clickSubmit() {
+		waitForControlVisible(RegisterPageUI.SUBMIT_BTN);
+		clickToElement(RegisterPageUI.SUBMIT_BTN);
+	}
+
 	public LoginPage openLoginPage(String url) {
 		openUrl(url);
 		return PageManagement.getLoginPage(driver);
