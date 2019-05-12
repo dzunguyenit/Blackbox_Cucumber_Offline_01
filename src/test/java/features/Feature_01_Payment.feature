@@ -12,7 +12,7 @@ Scenario: Create account, login and verify login successfully
 	And I get email and password 
 	And I navigate to Log In page "http://demo.guru99.com/v4/"
 	And I log in system 
-	Then Verify successfully with message "//*[contains(text(),'Customer Registered Successfully!!!')]" 
+	Then Verify successfully with message "Welcome To Manager" 
 	
 @newCustomer 
 Scenario Outline: Create new Customer and get NewCustomerID 
@@ -27,7 +27,7 @@ Scenario Outline: Create new Customer and get NewCustomerID
 	When I input with data "<Email>" to "//*[@name='emailid']" textbox 
 	When I input with data "<Password>" to "//*[@name='password']" textbox 
 	And I click to "//*[@name='sub']" button 
-	Then Verify successfully with message "//*[contains(text(),'Customer Registered Successfully!!!')]" 
+	Then Verify successfully with message "Customer Registered Successfully!!!" 
 	And I get text UserID "//*[contains(text(),'Customer ID')]/following-sibling::td" 
 	
 	Examples: 
@@ -46,7 +46,7 @@ Scenario Outline: Create new Customer and get NewCustomerID
 			When I input with data "<mobileUpdate>" to "//*[@name='telephoneno']" textbox 
 			When I input with data "<emailUpdate>" to "//*[@name='emailid']" textbox 
 			And I click to "//*[@name='sub']" button 
-			Then Verify successfully with message "//*[contains(text(),'Customer details updated Successfully!!!')]" 
+			Then Verify successfully with message "Customer details updated Successfully!!!" 
 			
 			Examples: 
 				| addressUpdate | cityUpdate | stateUpdate | PINUpdate | mobileUpdate | emailUpdate |
