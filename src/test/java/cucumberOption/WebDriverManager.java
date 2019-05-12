@@ -56,7 +56,6 @@ public class WebDriverManager {
 			driver.get(url);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-			System.out.println("--------START BROWSER--------");
 		}
 
 		return driver;

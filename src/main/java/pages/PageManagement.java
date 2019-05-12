@@ -8,7 +8,7 @@ public class PageManagement {
 	private static HomePage homePage;
 	private static NewAccountPage newAccountPage;
 	private static DepositPage depositPage;
-	private static AbtractPageObject abtractPageObject;
+	private static CommonPage abtractPageObject;
 
 	public static LoginPage getLoginPage(WebDriver driver) {
 		return (loginPage == null) ? new LoginPage(driver) : loginPage;
@@ -30,8 +30,8 @@ public class PageManagement {
 		return (depositPage == null) ? new DepositPage(driver) : depositPage;
 	}
 
-	public static AbtractPageObject getAbtractPageObject(WebDriver driver) {
-		return (abtractPageObject == null) ? new AbtractPageObject(driver) : abtractPageObject;
+	public static CommonPage getAbtractPageObject(WebDriver driver) {
+		return (abtractPageObject == null) ? new CommonPage(driver) : abtractPageObject;
 	}
 
 }

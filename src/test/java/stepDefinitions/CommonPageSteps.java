@@ -10,18 +10,18 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
-import pages.AbtractPageObject;
+import pages.CommonPage;
 import pages.PageManagement;
 
-public class AbtractPageSteps extends AbstractTest {
+public class CommonPageSteps extends AbstractTest {
 	WebDriver driver;
 	public static String accountID;
 	public static String userID;
 	public static final String monneyWithDraw = "15000";
-	private AbtractPageObject abtractPageObject;
+	private CommonPage abtractPageObject;
 	private CommonFuntions abstractPage;
 
-	public AbtractPageSteps() {
+	public CommonPageSteps() {
 		driver = WebDriverManager.driver;
 		abtractPageObject = PageManagement.getAbtractPageObject(driver);
 		abstractPage = new CommonFuntions(driver);

@@ -12,6 +12,7 @@ Scenario: Create account, login and verify login successfully
 	And I get email and password 
 	And I navigate to Log In page "http://demo.guru99.com/v4/"
 	And I log in system 
+	Then Verify successfully with message "//*[contains(text(),'Customer Registered Successfully!!!')]" 
 	
 @newCustomer 
 Scenario Outline: Create new Customer and get NewCustomerID 

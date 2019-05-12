@@ -18,7 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.Reporter;
 
-import interfaces.AbstractPageUI;
+import interfaces.CommonPageUI;
 import pages.DepositPage;
 import pages.HomePage;
 import pages.NewAccountPage;
@@ -756,46 +756,46 @@ public class CommonFuntions extends BasePage {
 	}
 
 	public void openNewCustomerPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "New Customer");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "New Customer");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "New Customer");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "New Customer");
 	}
 
 	public void openEditCustomerPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Edit Customer");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Edit Customer");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Edit Customer");
 	}
 
 	public HomePage openHomePage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Manager");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Manager");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Manager");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Manager");
 		return PageManagement.getHomePage(driver);
 	}
 
 	public NewAccountPage openNewAccountPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "New Account");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "New Account");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "New Account");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "New Account");
 		return PageManagement.getNewAccountPage(driver);
 	}
 
 	public DepositPage openDepositPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Deposit");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Deposit");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Deposit");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Deposit");
 		return PageManagement.getDepositPage(driver);
 	}
 
 	public void openWithDrawPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Withdrawal");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Withdrawal");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Withdrawal");
 	}
 
 	public void openFundTransferPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Fund Transfer");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Fund Transfer");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Fund Transfer");
 	}
 
 	public void openBalanceEnquiryPage(WebDriver driver) {
-		waitForControlVisible(AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
-		clickToElement(AbstractPageUI.DYNAMIC_PAGES, "Balance Enquiry");
+		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Balance Enquiry");
+		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Balance Enquiry");
 	}
 
 }
