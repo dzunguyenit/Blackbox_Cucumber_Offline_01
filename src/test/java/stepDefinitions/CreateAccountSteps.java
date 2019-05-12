@@ -16,7 +16,7 @@ public class CreateAccountSteps extends AbstractTest {
 	public static int depositInit;
 
 	public CreateAccountSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		newAccountPage = PageManagement.getNewAccountPage(driver);
 	}
 

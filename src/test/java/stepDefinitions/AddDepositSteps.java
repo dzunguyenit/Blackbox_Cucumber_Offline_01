@@ -16,7 +16,7 @@ public class AddDepositSteps extends AbstractTest {
 	public static int sumDeposit;
 
 	public AddDepositSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		depositPage = PageManagement.getDepositPage(driver);
 	}
 

@@ -22,7 +22,7 @@ public class AbtractPageSteps extends AbstractTest {
 	private CommonFuntions abstractPage;
 
 	public AbtractPageSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		abtractPageObject = PageManagement.getAbtractPageObject(driver);
 		abstractPage = new CommonFuntions(driver);
 
