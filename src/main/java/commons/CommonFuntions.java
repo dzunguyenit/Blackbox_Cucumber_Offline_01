@@ -24,11 +24,9 @@ import pages.HomePage;
 import pages.NewAccountPage;
 import pages.PageManagement;
 
-public class CommonFuntions {
-	protected WebDriver driver;
-
+public class CommonFuntions extends BasePage {
 	public CommonFuntions(WebDriver driver) {
-		this.driver = driver;
+		super(driver);
 	}
 
 	private int timeouts = 20;
