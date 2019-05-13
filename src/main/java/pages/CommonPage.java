@@ -52,8 +52,8 @@ public class CommonPage extends CommonFuntions {
 	}
 
 	public String getTextDynamicLabel(String labelName) {
-		waitForControlVisible(CommonPageUI.DYNAMIC_MSG, labelName);
-		return getTextDynamicElement(CommonPageUI.DYNAMIC_MSG, labelName);
+		waitForControlVisible(CommonPageUI.DYNAMIC_USERID_MSG, labelName);
+		return getTextDynamicElement(CommonPageUI.DYNAMIC_USERID_MSG, labelName);
 	}
 
 	public void selectDynamicDropdown(String dataValue, String dropdownName) {
