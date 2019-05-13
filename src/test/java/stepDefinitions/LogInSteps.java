@@ -1,14 +1,14 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
 import pages.LoginPage;
-import pages.PageManagement;
 
 public class LogInSteps {
-	private LoginPage loginPage;
+	LoginPage loginPage;
 	public static String usernameLogin;
 	public static String passwordLogin;
 	public static String loginURL;
@@ -17,7 +17,7 @@ public class LogInSteps {
 
 	public LogInSteps() {
 		driver = WebDriverManager.openBrowser();
-		loginPage = PageManagement.getLoginPage(driver);
+		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}
 

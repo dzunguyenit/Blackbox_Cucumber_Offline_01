@@ -142,22 +142,22 @@ Scenario Outline: Create customer with input numeric value name field
 			#	When I input with variable data "SpaceKeys" to "//*[@name='emailid']" textbox 
 			#	Then Verify successfully with message "First character can not have space" 
 			
-			#@TC_28_CreateCustomerSuccessfully 
-			#Scenario Outline: Create new Customer and get NewCustomerID 
-			#	Given I open "New Customer" page 
-			#	When I input with data "<CustomerName>" to customer name 
-			#	When I input with data "<DateOfBirth>" to date of birth 
-			#	When I input with data "<Address>" to address 
-			#	When I input with data "<City>" to city 
-			#	When I input with data "<State>" to state 
-			#	When I input with data "<PIN>" to pin 
-			#	When I input with data "<Phone>" to phone 
-			#	When I input with data "<Email>" to email 
-			#	When I input with data "<Password>" to password 
-			#	And I click submit button 
-			#	Then Verify successfully with message "Customer Registered Successfully!!!" 
-			#	And I get text UserID "Customer ID" 
-			#	
-			#	Examples: 
-			#		| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
-			#		| Neymar Jr    | 10/10/1993  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |
+			#		@TC_28_CreateCustomerSuccessfully 
+			#		Scenario Outline: Create new Customer and get NewCustomerID 
+			#			Given I open "New Customer" page 
+			#			When I input with data "<CustomerName>" to customer name 
+			#			When I input with data "<DateOfBirth>" to date of birth 
+			#			When I input with data "<Address>" to address 
+			#			When I input with data "<City>" to city 
+			#			When I input with data "<State>" to state 
+			#			When I input with data "<PIN>" to pin 
+			#			When I input with data "<Phone>" to phone 
+			#			When I input with data "<Email>" to email 
+			#			When I input with data "<Password>" to password 
+			#			And I click submit button 
+			#			Then Verify successfully with message "Customer Registered Successfully!!!" 
+			#			And I get text UserID "Customer ID" 
+			#			
+			#			Examples: 
+			#				| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
+			#				| Neymar Jr    | 10/10/1993  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |

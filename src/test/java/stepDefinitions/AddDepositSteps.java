@@ -1,15 +1,15 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.AbstractTest;
 import cucumber.api.java.en.Then;
 import cucumberOption.WebDriverManager;
 import pages.DepositPage;
-import pages.PageManagement;
 
 public class AddDepositSteps extends AbstractTest {
-	private DepositPage depositPage;
+	DepositPage depositPage;
 	WebDriver driver;
 	public static final String depositAdd = "5000";
 	public static int depositInit;
@@ -17,7 +17,7 @@ public class AddDepositSteps extends AbstractTest {
 
 	public AddDepositSteps() {
 		driver = WebDriverManager.driver;
-		depositPage = PageManagement.getDepositPage(driver);
+		depositPage = PageFactory.initElements(driver, DepositPage.class);
 	}
 
 	@Then("^Verify Current balance is \"(.*?)\"$")

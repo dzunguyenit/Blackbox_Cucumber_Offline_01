@@ -1,12 +1,12 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.AbstractTest;
 import cucumber.api.java.en.Then;
 import cucumberOption.WebDriverManager;
 import pages.NewAccountPage;
-import pages.PageManagement;
 
 public class CreateAccountSteps extends AbstractTest {
 	private NewAccountPage newAccountPage;
@@ -17,7 +17,7 @@ public class CreateAccountSteps extends AbstractTest {
 
 	public CreateAccountSteps() {
 		driver = WebDriverManager.driver;
-		newAccountPage = PageManagement.getNewAccountPage(driver);
+		newAccountPage = PageFactory.initElements(driver, NewAccountPage.class);
 	}
 
 	@Then("^Verify deposit with value \"(.*?)\"$")

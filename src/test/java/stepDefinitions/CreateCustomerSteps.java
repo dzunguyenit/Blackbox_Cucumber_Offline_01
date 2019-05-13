@@ -10,7 +10,7 @@ import cucumberOption.WebDriverManager;
 import pages.CreateCustomerPage;
 
 public class CreateCustomerSteps extends AbstractTest {
-	private CreateCustomerPage createCustomerPage;
+	CreateCustomerPage createCustomerPage;
 
 	WebDriver driver;
 

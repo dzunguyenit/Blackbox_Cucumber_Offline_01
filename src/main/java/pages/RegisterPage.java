@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonFuntions;
 import interfaces.RegisterPageUI;
@@ -33,6 +34,6 @@ public class RegisterPage extends CommonFuntions {
 
 	public LoginPage openLoginPage(String url) {
 		openUrl(url);
-		return PageManagement.getLoginPage(driver);
+		return PageFactory.initElements(driver, LoginPage.class);
 	}
 }

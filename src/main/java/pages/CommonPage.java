@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonFuntions;
 import interfaces.CommonPageUI;
@@ -74,19 +75,19 @@ public class CommonPage extends CommonFuntions {
 	public HomePage openHomePage(WebDriver driver) {
 		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Manager");
 		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Manager");
-		return PageManagement.getHomePage(driver);
+		return PageFactory.initElements(driver, HomePage.class);
 	}
 
 	public NewAccountPage openNewAccountPage(WebDriver driver) {
 		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "New Account");
 		clickToElement(CommonPageUI.DYNAMIC_PAGES, "New Account");
-		return PageManagement.getNewAccountPage(driver);
+		return PageFactory.initElements(driver, NewAccountPage.class);
 	}
 
 	public DepositPage openDepositPage(WebDriver driver) {
 		waitForControlVisible(CommonPageUI.DYNAMIC_PAGES, "Deposit");
 		clickToElement(CommonPageUI.DYNAMIC_PAGES, "Deposit");
-		return PageManagement.getDepositPage(driver);
+		return PageFactory.initElements(driver, DepositPage.class);
 	}
 
 	public void openWithDrawPage(WebDriver driver) {
