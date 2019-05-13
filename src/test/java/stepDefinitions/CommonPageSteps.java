@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.AbstractTest;
 import commons.Data;
@@ -10,19 +11,17 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
 import pages.CommonPage;
-import pages.PageManagement;
 
 public class CommonPageSteps extends AbstractTest {
 	WebDriver driver;
 	public static String accountID;
 	public static String userID;
 	public static final String monneyWithDraw = "15000";
-	private CommonPage commonPage;
+	CommonPage commonPage;
 
 	public CommonPageSteps() {
 		driver = WebDriverManager.driver;
-		commonPage = PageManagement.getCommonPage(driver);
-
+		commonPage = PageFactory.initElements(driver, CommonPage.class);
 	}
 
 	@When("^I click to \"(.*?)\" button$")
@@ -97,6 +96,9 @@ public class CommonPageSteps extends AbstractTest {
 
 	@Then("^Verify successfully with message \"(.*?)\"$")
 	public void verifyCustomerCreatedSuccessfullyWithMessage(String message) {
+		// *[contains(text(),'%s')]
+		String newLocator = String.format("//*[contains(text(),'%s')]", message);
+		System.out.println(newLocator);
 		verifyTrue(commonPage.isDynamicElementDisplayed(message));
 	}
 

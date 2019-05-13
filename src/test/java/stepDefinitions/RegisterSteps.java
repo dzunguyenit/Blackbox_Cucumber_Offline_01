@@ -1,18 +1,18 @@
 package stepDefinitions;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 
 import commons.AbstractTest;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
 import pages.LoginPage;
-import pages.PageManagement;
 import pages.RegisterPage;
 
 public class RegisterSteps extends AbstractTest {
-	private LoginPage loginPage;
-	private RegisterPage registerPage;
+	LoginPage loginPage;
+	RegisterPage registerPage;
 	public static String usernameLogin;
 	public static String passwordLogin;
 	public static String loginURL;
@@ -21,8 +21,7 @@ public class RegisterSteps extends AbstractTest {
 
 	public RegisterSteps() {
 		driver = WebDriverManager.openBrowser();
-		loginPage = PageManagement.getLoginPage(driver);
-
+		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 
 	@Given("^I navigate to Guru bank and click Here link$")

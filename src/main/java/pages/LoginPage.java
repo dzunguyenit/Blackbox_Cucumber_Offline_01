@@ -46,7 +46,7 @@ public class LoginPage extends CommonFuntions {
 		// }
 		waitForControlVisible(LoginPageUI.HERE_LINK);
 		clickToElement(LoginPageUI.HERE_LINK);
-		return PageManagement.getRegisterPage(driver);
+		return PageFactory.initElements(driver, RegisterPage.class);
 	}
 
 }

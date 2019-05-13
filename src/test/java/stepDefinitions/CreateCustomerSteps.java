@@ -64,7 +64,7 @@ public class CreateCustomerSteps extends AbstractTest {
 		createCustomerPage.inputPassword(value);
 	}
 
-	@When("^I click submit button $")
+	@When("^I click submit button$")
 	public void clickSubmit() {
 		createCustomerPage.clickSubmitButton();
 	}
