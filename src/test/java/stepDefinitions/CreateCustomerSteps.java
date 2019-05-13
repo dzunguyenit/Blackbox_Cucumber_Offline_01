@@ -115,6 +115,26 @@ public class CreateCustomerSteps extends AbstractTest {
 		createCustomerPage.inputKeysPin(Keys.TAB);
 	}
 
+	@When("^I input key tab to email$")
+	public void inputKeyTabEmail() {
+		createCustomerPage.inputKeysEmail(Keys.TAB);
+	}
+
+	@When("^I input key space to email$")
+	public void inputKeySpaceEmail() {
+		createCustomerPage.inputKeysEmail(Keys.SPACE);
+	}
+
+	@When("^I input key tab to phone$")
+	public void inputKeyTabPhone() {
+		createCustomerPage.inputKeysPhone(Keys.TAB);
+	}
+
+	@When("^I input key space to phone$")
+	public void inputKeySpacePhone() {
+		createCustomerPage.inputKeysPhone(Keys.SPACE);
+	}
+
 	@When("^I input data \"(.*?)\" to customer name$")
 	public void inputDataToCustomerName(String value) {
 		createCustomerPage.inputCustomerName(value);
@@ -128,6 +148,16 @@ public class CreateCustomerSteps extends AbstractTest {
 	@When("^I input data \"(.*?)\" to state$")
 	public void inputDataToState(String value) {
 		createCustomerPage.inputState(value);
+	}
+
+	@When("^I input data \"(.*?)\" to phone$")
+	public void inputDataToPhone(String value) {
+		createCustomerPage.inputPhone(value);
+	}
+
+	@When("^I input data \"(.*?)\" to email$")
+	public void inputDataToEmail(String value) {
+		createCustomerPage.inputEmail(value);
 	}
 
 	@When("^I input data \"(.*?)\" to pin$")

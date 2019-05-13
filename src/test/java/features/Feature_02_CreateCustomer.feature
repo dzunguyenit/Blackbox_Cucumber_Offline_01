@@ -80,7 +80,7 @@ Scenario Outline: Create customer with input numeric value name field
 							Then Verify successfully with message "First character can not have space" 
 							
 							
-						@TC_15_17_18_Create_StateCannotBeNumberic 
+						@TC_15_17_18_20_Create_StateCannotBeNumberic 
 						Scenario Outline: Create customer with input numeric value name field 
 							When I input data "<PIN>" to pin 
 							Then Verify successfully with message "<Message>" 
@@ -90,6 +90,7 @@ Scenario Outline: Create customer with input numeric value name field
 								| ABC   | Characters are not allowed  | 
 								| 123   | PIN Code must have 6 Digits | 
 								| name!@#   | Special characters are not allowed | 
+								| 12 345   | Characters are not allowed | 
 								
 								
 								@TC_16_Create_PinCannotEmpty 
@@ -98,67 +99,73 @@ Scenario Outline: Create customer with input numeric value name field
 									Then Verify successfully with message "PIN Code must not be blank" 
 									
 									
-									#@TC_19_Create_PinCannotFirstCharacterBlankSpace 
-									#Scenario: Create customer with input first character blank space PIN field 
-									#	When I input with variable data "SpaceKeys" to "//*[@name='pinno']" textbox 
-									#	Then Verify successfully with message "First character can not have space" 
-									#	
-									#@TC_20_Create_PinCannotHaveBlankSpace 
-									#Scenario: Create customer with input char value PIN field 
-									#	When I input with data "12 345" to "//*[@name='pinno']" textbox 
-									#	Then Verify successfully with message "Characters are not allowed" 
-									#	
-									#@TC_21_Create_TelephoneCannotEmpty 
-									#Scenario: Create customer with empty telephone field 
-									#	When I input with variable data "TabKeys" to "//*[@name='telephoneno']" textbox 
-									#	Then Verify successfully with message "Mobile no must not be blank" 
-									#	
-									#@TC_22_Create_TelephoneCannotFirstCharacterBlankSpace 
-									#Scenario: Create customer with input first character blank space telephone field 
-									#	When I input with variable data "SpaceKeys" to "//*[@name='telephoneno']" textbox 
-									#	Then Verify successfully with message "First character can not have space" 
-									#	
-									#@TC_23_Create_TelephoneCannotHaveBlankSpace 
-									#Scenario: Create customer with input char value telephone field 
-									#	When I input with data "012 11122" to "//*[@name='telephoneno']" textbox 
-									#	Then Verify successfully with message "Characters are not allowed" 
-									#	
-									#@TC_24_Create_TelephoneCannotHaveSpecialCharacter 
-									#Scenario: Create customer with input special value telephone field 
-									#	When I input with data "@#98" to "//*[@name='telephoneno']" textbox 
-									#	Then Verify successfully with message "Special characters are not allowed" 
-									#	
-									#@TC_25_Create_EmailCannotEmpty 
-									#Scenario: Create customer with empty email field 
-									#	When I input with variable data "TabKeys" to "//*[@name='emailid']" textbox 
-									#	Then Verify successfully with message "Email-ID must not be blank" 
-									#	
-									#@TC_26_Create_EmailIncorrectFormat 
-									#Scenario: Create customer with input special value telephone field 
-									#	When I input with data "Guru99@" to "//*[@name='emailid']" textbox 
-									#	Then Verify successfully with message "Email-ID is not valid" 
-									#	
-									#@TC_27_Create_EmailCannotHaveBlankSpace 
-									#Scenario: Create customer with input first character blank space PIN field 
-									#	When I input with variable data "SpaceKeys" to "//*[@name='emailid']" textbox 
-									#	Then Verify successfully with message "First character can not have space" 
+								@TC_19_Create_PinCannotFirstCharacterBlankSpace 
+								Scenario: 
+									Create customer with input first character blank space PIN field 
+									When I input key space to pin 
+									Then Verify successfully with message "First character can not have space" 
 									
-									#		@TC_28_CreateCustomerSuccessfully 
-									#		Scenario Outline: Create new Customer and get NewCustomerID 
-									#			Given I open "New Customer" page 
-									#			When I input with data "<CustomerName>" to customer name 
-									#			When I input with data "<DateOfBirth>" to date of birth 
-									#			When I input with data "<Address>" to address 
-									#			When I input with data "<City>" to city 
-									#			When I input with data "<State>" to state 
-									#			When I input with data "<PIN>" to pin 
-									#			When I input with data "<Phone>" to phone 
-									#			When I input with data "<Email>" to email 
-									#			When I input with data "<Password>" to password 
-									#			And I click submit button 
-									#			Then Verify successfully with message "Customer Registered Successfully!!!" 
-									#			And I get text UserID "Customer ID" 
-									#			
-									#			Examples: 
-									#				| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
-									#				| Neymar Jr    | 10/10/1993  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |
+									
+								@TC_21_Create_TelephoneCannotEmpty 
+								Scenario: Create customer with empty telephone field 
+									When I input key tab to phone 
+									Then Verify successfully with message "Mobile no must not be blank" 
+									
+								@TC_22_Create_TelephoneCannotFirstCharacterBlankSpace 
+								Scenario: 
+									Create customer with input first character blank space telephone field 
+									When I input key space to phone 
+									Then Verify successfully with message "First character can not have space" 
+									
+									
+								@TC_23_24_Create_StateCannotBeNumberic 
+								Scenario Outline: Create customer with input numeric value name field 
+									When I input data "<Phone>" to phone 
+									Then Verify successfully with message "<Message>" 
+									
+									Examples: 
+										| Phone | Message |
+										| 012 11122   | Characters are not allowed  | 
+										| @#98   | Special characters are not allowed  |
+										
+										
+										@TC_25_Create_EmailCannotEmpty 
+										Scenario: 
+											Create customer with input first character blank space telephone field 
+											When I input key tab to email 
+											Then Verify successfully with message "Email-ID must not be blank" 
+											
+										@TC_26_Create_StateCannotBeNumberic 
+										Scenario Outline: Create customer with input numeric value name field 
+											When I input data "<Email>" to email 
+											Then Verify successfully with message "<Message>" 
+											
+											Examples: 
+												| Email | Message |
+												| Guru99@  | Email-ID is not valid  | 
+												
+												@TC_27_Create_EmailCannotHaveBlankSpace 
+												Scenario: 
+													Create customer with input first character blank space PIN field 
+													When I input key space to email 
+													Then Verify successfully with message "First character can not have space" 
+													
+												@TC_28_CreateCustomerSuccessfully 
+												Scenario Outline: Create new Customer and get NewCustomerID 
+													Given I open "New Customer" page 
+													When I input with data "<CustomerName>" to customer name 
+													When I input with data "<DateOfBirth>" to date of birth 
+													When I input with data "<Address>" to address 
+													When I input with data "<City>" to city 
+													When I input with data "<State>" to state 
+													When I input with data "<PIN>" to pin 
+													When I input with data "<Phone>" to phone 
+													When I input with data "<Email>" to email 
+													When I input with data "<Password>" to password 
+													And I click submit button 
+													Then Verify successfully with message "Customer Registered Successfully!!!" 
+													And I get text UserID "Customer ID" 
+													
+													Examples: 
+														| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
+														| Neymar Jr    | 10/10/1993  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |
