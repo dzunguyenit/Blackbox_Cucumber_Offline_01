@@ -156,7 +156,7 @@ Scenario Outline: Create new Customer and get NewCustomerID
 	When I input with data "<Password>" to password 
 	And I click submit button 
 	Then Verify successfully with message "Customer Registered Successfully!!!" 
-	And I get text UserID "//*[contains(text(),'Customer ID')]/following-sibling::td" 
+#	And I get text UserID "//*[contains(text(),'Customer ID')]/following-sibling::td" 
 	
 	Examples: 
 		| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
