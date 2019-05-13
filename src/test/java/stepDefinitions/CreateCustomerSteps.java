@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -62,6 +63,16 @@ public class CreateCustomerSteps extends AbstractTest {
 	@When("^I input with data \"(.*?)\" to password$")
 	public void inputPassword(String value) {
 		createCustomerPage.inputPassword(value);
+	}
+
+	@When("^I input key tab to customer name$")
+	public void inputKeyTabCustomerName() {
+		createCustomerPage.inputKeysCustomerName(Keys.TAB);
+	}
+
+	@When("^I input data \"(.*?)\" to customer name$")
+	public void inputDataToCustomerName(String value) {
+		createCustomerPage.inputCustomerName(value);
 	}
 
 	@When("^I click submit button$")

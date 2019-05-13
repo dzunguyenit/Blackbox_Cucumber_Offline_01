@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
 import commons.CommonFuntions;
@@ -14,6 +15,11 @@ public class CreateCustomerPage extends CommonFuntions {
 	public void inputCustomerName(String value) {
 		waitForControlVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
 		sendKeyToElement(CreateCustomerPageUI.CUSTOMER_NAME_TXT, value);
+	}
+
+	public void inputKeysCustomerName(Keys key) {
+		waitForControlVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
+		sendKeyPress(CreateCustomerPageUI.CUSTOMER_NAME_TXT, key);
 	}
 
 	public void inputDateOfBirth(String value) {
