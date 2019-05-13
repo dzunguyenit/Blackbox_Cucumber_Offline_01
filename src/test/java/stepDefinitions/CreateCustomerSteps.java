@@ -105,6 +105,11 @@ public class CreateCustomerSteps extends AbstractTest {
 		createCustomerPage.inputKeysPin(Keys.SPACE);
 	}
 
+	@When("^I input key space to state$")
+	public void inputKeySpaceState() {
+		createCustomerPage.inputKeysState(Keys.SPACE);
+	}
+
 	@When("^I input key tab to pin$")
 	public void inputKeyTabPin() {
 		createCustomerPage.inputKeysPin(Keys.TAB);

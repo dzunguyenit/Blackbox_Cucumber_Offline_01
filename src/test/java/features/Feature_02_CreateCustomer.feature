@@ -76,7 +76,7 @@ Scenario Outline: Create customer with input numeric value name field
 						@TC_14_Create_StateCannotFirstCharacterBlankSpace 
 						Scenario: 
 							Create customer with input first character blank space state field 
-							When I input key space to pin 
+							When I input key space to state 
 							Then Verify successfully with message "First character can not have space" 
 							
 							
