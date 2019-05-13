@@ -65,7 +65,7 @@ public class CreateCustomerSteps extends AbstractTest {
 	}
 
 	@When("^I click submit button$")
-	public void clickSubmit() {
+	public void clickSubmit() throws Exception {
 		createCustomerPage.clickSubmitButton();
 	}
 

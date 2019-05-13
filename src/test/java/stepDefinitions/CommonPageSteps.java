@@ -96,9 +96,6 @@ public class CommonPageSteps extends AbstractTest {
 
 	@Then("^Verify successfully with message \"(.*?)\"$")
 	public void verifyCustomerCreatedSuccessfullyWithMessage(String message) {
-		// *[contains(text(),'%s')]
-		String newLocator = String.format("//*[contains(text(),'%s')]", message);
-		System.out.println(newLocator);
 		verifyTrue(commonPage.isDynamicElementDisplayed(message));
 	}
 

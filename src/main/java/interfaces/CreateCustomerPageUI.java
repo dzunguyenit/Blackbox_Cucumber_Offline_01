@@ -10,4 +10,5 @@ public class CreateCustomerPageUI {
 	public static final String PHONE_TXT = "//*[@name='telephoneno']";
 	public static final String EMAIL_TXT = "//*[@name='emailid']";
 	public static final String PASSWORD_TXT = "//*[@name='password']";
+	public static final String SUBMIT_BTN = "//*[@name='sub']";
 }

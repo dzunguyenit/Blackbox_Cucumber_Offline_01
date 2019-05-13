@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.WebDriver;
 
 import commons.CommonFuntions;
-import interfaces.CommonPageUI;
 import interfaces.CreateCustomerPageUI;
 
 public class CreateCustomerPage extends CommonFuntions {
@@ -58,7 +57,7 @@ public class CreateCustomerPage extends CommonFuntions {
 	}
 
 	public void clickSubmitButton() {
-		waitForControlVisible(CommonPageUI.SUBMIT_BTN);
-		clickToElement(CommonPageUI.SUBMIT_BTN);
+		waitForControlVisible(CreateCustomerPageUI.SUBMIT_BTN);
+		clickToElement(CreateCustomerPageUI.SUBMIT_BTN);
 	}
 }
