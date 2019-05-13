@@ -70,6 +70,21 @@ public class CreateCustomerSteps extends AbstractTest {
 		createCustomerPage.inputKeysCustomerName(Keys.TAB);
 	}
 
+	@When("^I input key space to customer name$")
+	public void inputKeySpaceCustomerName() {
+		createCustomerPage.inputKeysCustomerName(Keys.SPACE);
+	}
+
+	@When("^I input key tab to address$")
+	public void inputKeyTabAddress() {
+		createCustomerPage.inputKeysAddress(Keys.TAB);
+	}
+
+	@When("^I input key space to address$")
+	public void inputKeySpaceAddress() {
+		createCustomerPage.inputKeysAddress(Keys.SPACE);
+	}
+
 	@When("^I input data \"(.*?)\" to customer name$")
 	public void inputDataToCustomerName(String value) {
 		createCustomerPage.inputCustomerName(value);
