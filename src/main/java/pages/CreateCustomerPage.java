@@ -32,6 +32,16 @@ public class CreateCustomerPage extends CommonFuntions {
 		sendKeyPress(CreateCustomerPageUI.CITY_TXT, key);
 	}
 
+	public void inputKeysState(Keys key) {
+		waitForControlVisible(CreateCustomerPageUI.STATE_TXT);
+		sendKeyPress(CreateCustomerPageUI.STATE_TXT, key);
+	}
+
+	public void inputKeysPin(Keys key) {
+		waitForControlVisible(CreateCustomerPageUI.PIN_TXT);
+		sendKeyPress(CreateCustomerPageUI.PIN_TXT, key);
+	}
+
 	public void inputDateOfBirth(String value) {
 		waitForControlVisible(CreateCustomerPageUI.DOB_DATEPICKER);
 		sendKeyToElement(CreateCustomerPageUI.DOB_DATEPICKER, value);
