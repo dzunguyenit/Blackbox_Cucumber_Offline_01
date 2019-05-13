@@ -10,29 +10,29 @@ Scenario: Create account, login and verify login successfully
 	When I input email "randomEmail" 
 	And I click to submit button 
 	And I get email and password 
-	And I navigate to Log In page "http://demo.guru99.com/v4/"
+	And I navigate to Log In page "http://demo.guru99.com/v4/" 
 	And I log in system 
 	Then Verify successfully with message "Welcome To Manager" 
 	
 @newCustomer 
 Scenario Outline: Create new Customer and get NewCustomerID 
 	Given I open "New Customer" page 
-	When I input with data "<CustomerName>" to "//*[@name='name']" textbox 
-	When I input date of birth with data "<DateOfBirth>" to "//*[@name='dob']" 
-	When I input with data "<Address>" to "//*[@name='addr']" textbox 
-	When I input with data "<City>" to "//*[@name='city']" textbox 
-	When I input with data "<State>" to "//*[@name='state']" textbox 
-	When I input with data "<PIN>" to "//*[@name='pinno']" textbox 
-	When I input with data "<Phone>" to "//*[@name='telephoneno']" textbox 
-	When I input with data "<Email>" to "//*[@name='emailid']" textbox 
-	When I input with data "<Password>" to "//*[@name='password']" textbox 
-	And I click to "//*[@name='sub']" button 
+	When I input with data "<CustomerName>" to customer name 
+	When I input with data "<DateOfBirth>" to date of birth 
+	When I input with data "<Address>" to address 
+	When I input with data "<City>" to city 
+	When I input with data "<State>" to state 
+	When I input with data "<PIN>" to pin 
+	When I input with data "<Phone>" to phone 
+	When I input with data "<Email>" to email 
+	When I input with data "<Password>" to password 
+	And I click submit button 
 	Then Verify successfully with message "Customer Registered Successfully!!!" 
 	And I get text UserID "//*[contains(text(),'Customer ID')]/following-sibling::td" 
 	
 	Examples: 
 		| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |
-		| Dam Dao      | 16/10/1989  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |
+		| Neymar Jr    | 26/01/1993  | Da nang | Da nang | Da nang | 466250 | 4555442476 | randomEmail | 1234567890 |
 		
 		@editCustomer 
 		Scenario Outline: Edit Customer 
