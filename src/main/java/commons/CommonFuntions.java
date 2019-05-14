@@ -65,41 +65,26 @@ public class CommonFuntions extends BasePage {
 
 	// Web Element
 	protected void clickToElement(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.click();
-		} catch (Exception e) {
-		}
-
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.click();
 	}
 
 	protected void clickToElement(String locator, String... value) {
-		try {
-			String dynamicLocator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(dynamicLocator));
-			element.click();
-		} catch (Exception e) {
-		}
+		String dynamicLocator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(dynamicLocator));
+		element.click();
 	}
 
 	protected String getTextElement(String locator, String... value) {
-		String text = null;
-		try {
-			String dynamicLocator = String.format(locator, (Object[]) value);
-			return getTextElement(dynamicLocator);
-		} catch (Exception e) {
-		}
-		return text;
+		String dynamicLocator = String.format(locator, (Object[]) value);
+		return getTextElement(dynamicLocator);
 	}
 
 	// Clear and sendkey
 	protected void sendKeyToElement(String locator, String value) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.clear();
-			element.sendKeys(value);
-		} catch (Exception e) {
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+		element.sendKeys(value);
 	}
 
 	protected void clearElement(String locator) {
@@ -108,73 +93,51 @@ public class CommonFuntions extends BasePage {
 	}
 
 	protected void clearAndSendKeyToElementDynamicTextbox(String locator, String text, String... value) {
-		try {
-			locator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.clear();
-			element.sendKeys(text);
-		} catch (Exception e) {
-		}
+		locator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+		element.sendKeys(text);
 	}
 
 	protected void clearAndSendKeyPressToElementDynamicTextbox(String locator, Keys key, String... value) {
-		try {
-			locator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.clear();
-			element.sendKeys(key);
-		} catch (Exception e) {
-		}
+		locator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+		element.sendKeys(key);
 	}
 
 	protected void sendKeyToElementDynamicTextbox(String locator, String text, String... value) {
-		try {
-			locator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.sendKeys(text);
-		} catch (Exception e) {
-		}
+		locator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.sendKeys(text);
 	}
 
 	protected void sendKeyToElementDonotClear(String locator, String value) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.sendKeys(value);
-		} catch (Exception e) {
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.sendKeys(value);
 	}
 
 	protected void selectItemInDropdown(String locator, String value) {
-		try {
-			Select element = new Select(driver.findElement(By.xpath(locator)));
-			element.selectByVisibleText(value);
-		} catch (Exception e) {
-		}
+		Select element = new Select(driver.findElement(By.xpath(locator)));
+		element.selectByVisibleText(value);
 	}
 
 	protected void selectItemInDynamicDropdown(String locator, String valueDropdown, String... value) {
-		try {
-			locator = String.format(locator, (Object[]) value);
-			Select element = new Select(driver.findElement(By.xpath(locator)));
-			element.selectByVisibleText(valueDropdown);
-		} catch (Exception e) {
-		}
+		locator = String.format(locator, (Object[]) value);
+		Select element = new Select(driver.findElement(By.xpath(locator)));
+		element.selectByVisibleText(valueDropdown);
 	}
 
 	protected void selectItemInDropdownSpecial(String locatorDropdown, String locator, String value) {
-		try {
-			WebElement dropdown = driver.findElement(By.xpath(locatorDropdown));
-			dropdown.click();
-			List<WebElement> list = driver.findElements(By.xpath(locator));
-			for (WebElement element : list) {
-				if (element.getText().equalsIgnoreCase(value)) {
-					element.click();
-					break;
-				}
+		WebElement dropdown = driver.findElement(By.xpath(locatorDropdown));
+		dropdown.click();
+		List<WebElement> list = driver.findElements(By.xpath(locator));
+		for (WebElement element : list) {
+			if (element.getText().equalsIgnoreCase(value)) {
+				element.click();
+				break;
 			}
-		} catch (Exception e) {
 		}
-
 	}
 
 	protected String getFirstItemSelected(String locator) {
@@ -280,47 +243,30 @@ public class CommonFuntions extends BasePage {
 	}
 
 	protected String getWindowParentID(WebDriver driver) {
-		String text = null;
-		try {
-			return driver.getWindowHandle();
-		} catch (Exception e) {
-		}
-		return text;
+		return driver.getWindowHandle();
 	}
 
 	// Iframe
 	protected void switchToIframe(String locator) {
-		try {
-			WebElement iframe = driver.findElement(By.xpath(locator));
-			driver.switchTo().frame(iframe);
-		} catch (Exception e) {
-		}
+		WebElement iframe = driver.findElement(By.xpath(locator));
+		driver.switchTo().frame(iframe);
 	}
 
 	protected void switchToDefaultContent(WebDriver driver) {
-		try {
-			driver.switchTo().defaultContent();
-		} catch (Exception e) {
-		}
+		driver.switchTo().defaultContent();
 	}
 
 	// Actions
 	protected void doubleClick(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.doubleClick(element).perform();
-		} catch (Exception e) {
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.doubleClick(element).perform();
 	}
 
 	protected void hoverMouse(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.moveToElement(element).perform();
-		} catch (Exception e) {
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();
 	}
 
 	protected void hoverMouse(String locator, String... value) {
