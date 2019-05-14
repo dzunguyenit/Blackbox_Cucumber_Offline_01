@@ -16,7 +16,7 @@ public class LogInSteps {
 	WebDriver driver;
 
 	public LogInSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}

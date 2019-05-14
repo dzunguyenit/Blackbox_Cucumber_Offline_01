@@ -15,7 +15,7 @@ public class CreateCustomerSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public CreateCustomerSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		createCustomerPage = PageFactory.initElements(driver, CreateCustomerPage.class);
 
 	}

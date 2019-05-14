@@ -15,7 +15,7 @@ public class EditCustomerSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public EditCustomerSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = WebDriverManager.driver;
 		editCustomerPage = PageFactory.initElements(driver, EditCustomerPage.class);
 
 	}
