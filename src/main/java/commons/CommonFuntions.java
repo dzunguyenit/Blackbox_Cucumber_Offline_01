@@ -15,8 +15,6 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
-import org.testng.Reporter;
 
 public class CommonFuntions extends BasePage {
 	public CommonFuntions(WebDriver driver) {
@@ -64,24 +62,19 @@ public class CommonFuntions extends BasePage {
 	}
 
 	// Web Element
-	protected void clickToElement(String locator) {
+	protected void click(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.click();
 	}
 
-	protected void clickToElement(String locator, String... value) {
+	protected void click(String locator, String... value) {
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
 		element.click();
 	}
 
-	protected String getTextElement(String locator, String... value) {
-		String dynamicLocator = String.format(locator, (Object[]) value);
-		return getTextElement(dynamicLocator);
-	}
-
 	// Clear and sendkey
-	protected void sendKeyToElement(String locator, String value) {
+	protected void input(String locator, String value) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(value);
@@ -92,43 +85,43 @@ public class CommonFuntions extends BasePage {
 		element.clear();
 	}
 
-	protected void clearAndSendKeyToElementDynamicTextbox(String locator, String text, String... value) {
+	protected void clearAndInputDynamicTextbox(String locator, String text, String... value) {
 		locator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(text);
 	}
 
-	protected void clearAndSendKeyPressToElementDynamicTextbox(String locator, Keys key, String... value) {
+	protected void clearAndInputPressToElementDynamicTextbox(String locator, Keys key, String... value) {
 		locator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(key);
 	}
 
-	protected void sendKeyToElementDynamicTextbox(String locator, String text, String... value) {
+	protected void input(String locator, String text, String... value) {
 		locator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.sendKeys(text);
 	}
 
-	protected void sendKeyToElementDonotClear(String locator, String value) {
+	protected void inputDonotClear(String locator, String value) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.sendKeys(value);
 	}
 
-	protected void selectItemInDropdown(String locator, String value) {
+	protected void selectComboboxByVisibleText(String locator, String value) {
 		Select element = new Select(driver.findElement(By.xpath(locator)));
 		element.selectByVisibleText(value);
 	}
 
-	protected void selectItemInDynamicDropdown(String locator, String valueDropdown, String... value) {
+	protected void selectComboboxDynamicDropdown(String locator, String valueDropdown, String... value) {
 		locator = String.format(locator, (Object[]) value);
 		Select element = new Select(driver.findElement(By.xpath(locator)));
 		element.selectByVisibleText(valueDropdown);
 	}
 
-	protected void selectItemInDropdownSpecial(String locatorDropdown, String locator, String value) {
+	protected void selectComboboxSpecial(String locatorDropdown, String locator, String value) {
 		WebElement dropdown = driver.findElement(By.xpath(locatorDropdown));
 		dropdown.click();
 		List<WebElement> list = driver.findElements(By.xpath(locator));
@@ -150,7 +143,7 @@ public class CommonFuntions extends BasePage {
 		return element.getAttribute(attribute);
 	}
 
-	protected String getTextElement(String locator) {
+	protected String getText(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.getText();
 	}
@@ -172,23 +165,23 @@ public class CommonFuntions extends BasePage {
 			element.click();
 	}
 
-	protected boolean isControlDisplayed(String locator, String... value) {
+	protected boolean isDisplayed(String locator, String... value) {
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
 		return element.isDisplayed();
 	}
 
-	protected boolean isControlDisplayed(String locator) {
+	protected boolean isDisplayed(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isDisplayed();
 	}
 
-	protected boolean isControlSelected(String locator) {
+	protected boolean isSelected(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isSelected();
 	}
 
-	protected boolean isControlEnabled(String locator) {
+	protected boolean isEnabled(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isEnabled();
 	}
@@ -209,7 +202,7 @@ public class CommonFuntions extends BasePage {
 		return alert.getText();
 	}
 
-	protected void sendKeyAlert(String value) {
+	protected void inputAlert(String value) {
 		Alert alert = driver.switchTo().alert();
 		alert.sendKeys(value);
 	}
@@ -242,17 +235,17 @@ public class CommonFuntions extends BasePage {
 			return false;
 	}
 
-	protected String getWindowParentID(WebDriver driver) {
+	protected String getWindow(WebDriver driver) {
 		return driver.getWindowHandle();
 	}
 
 	// Iframe
-	protected void switchToIframe(String locator) {
+	protected void switchIframe(String locator) {
 		WebElement iframe = driver.findElement(By.xpath(locator));
 		driver.switchTo().frame(iframe);
 	}
 
-	protected void switchToDefaultContent(WebDriver driver) {
+	protected void switchDefaultContent(WebDriver driver) {
 		driver.switchTo().defaultContent();
 	}
 
@@ -299,24 +292,24 @@ public class CommonFuntions extends BasePage {
 	}
 
 	// Key Press
-	protected void keyDownElement(String locator, Keys pressKeyDown) {
+	protected void keyDown(String locator, Keys pressKeyDown) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.keyDown(element, pressKeyDown);
 	}
 
-	protected void keyUpElement(String locator, Keys pressKeyUp) {
+	protected void keyUp(String locator, Keys pressKeyUp) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		Actions action = new Actions(driver);
 		action.keyUp(element, pressKeyUp);
 	}
 
-	protected void sendKeyPress(String locator, Keys key) {
+	protected void inputKeyPress(String locator, Keys key) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.sendKeys(key);
 	}
 
-	protected void clearAndSendKeyPress(String locator, Keys key) {
+	protected void clearAndInputKeyPress(String locator, Keys key) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		element.clear();
 		element.sendKeys(key);
@@ -329,18 +322,18 @@ public class CommonFuntions extends BasePage {
 	}
 
 	// Javascript
-	protected Object executeJavascriptToBrowser(String javaSript) {
+	protected Object executeScriptToBrowser(String javaSript) {
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		return js.executeScript(javaSript);
 	}
 
-	protected void executeJavascriptToElement(String locator) {
+	protected void executeScriptToElement(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
 
-	protected void executeJavascriptToElement(String locator, String... value) {
+	protected void executeScriptToElement(String locator, String... value) {
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
 		JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -373,44 +366,44 @@ public class CommonFuntions extends BasePage {
 	}
 
 	// Wait
-	protected void waitForControlPresence(String locator) {
+	protected void waitPresence(String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(locator);
 		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 
-	protected void waitForControlVisible(String locator) {
+	protected void waitVisible(String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(locator);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 
-	protected void waitForIframeVisible(String locator) {
+	protected void waitIframeVisible(String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(locator);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
 	}
 
-	protected void waitForControlVisible(String locator, String... value) {
+	protected void waitVisible(String locator, String... value) {
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(dynamicLocator);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 
-	protected void waitForControlClickable(String locator) {
+	protected void waitClickable(String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(locator);
 		wait.until(ExpectedConditions.elementToBeClickable(by));
 	}
 
-	protected void waitForControlInvisible(String locator) {
+	protected void waitInvisible(String locator) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		By by = By.xpath(locator);
 		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 	}
 
-	protected void waitForAlertPresence() {
+	protected void waitAlertPresence() {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
 		wait.until(ExpectedConditions.alertIsPresent());
 	}
@@ -445,25 +438,6 @@ public class CommonFuntions extends BasePage {
 		temp = position1;
 		position1 = position2;
 		position2 = temp;
-	}
-
-	protected boolean verifyEquals(Object actual, Object expected, boolean flag) {
-		boolean pass = true;
-		if (flag == false) {
-			try {
-				Assert.assertEquals(actual, expected);
-			} catch (Throwable e) {
-				pass = false;
-				Reporter.getCurrentTestResult().setThrowable(e);
-			}
-		} else {
-			Assert.assertEquals(actual, expected);
-		}
-		return pass;
-	}
-
-	protected boolean verifyEquals(Object actual, Object expected) {
-		return verifyEquals(actual, expected, false);
 	}
 
 }

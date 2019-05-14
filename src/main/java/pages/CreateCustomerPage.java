@@ -13,87 +13,87 @@ public class CreateCustomerPage extends CommonFuntions {
 	}
 
 	public void inputCustomerName(String value) {
-		waitForControlVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
-		sendKeyToElement(CreateCustomerPageUI.CUSTOMER_NAME_TXT, value);
+		waitVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
+		input(CreateCustomerPageUI.CUSTOMER_NAME_TXT, value);
 	}
 
 	public void inputKeysCustomerName(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
-		sendKeyPress(CreateCustomerPageUI.CUSTOMER_NAME_TXT, key);
+		waitVisible(CreateCustomerPageUI.CUSTOMER_NAME_TXT);
+		inputKeyPress(CreateCustomerPageUI.CUSTOMER_NAME_TXT, key);
 	}
 
 	public void inputKeysAddress(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.ADDRESS_TXT);
-		sendKeyPress(CreateCustomerPageUI.ADDRESS_TXT, key);
+		waitVisible(CreateCustomerPageUI.ADDRESS_TXT);
+		inputKeyPress(CreateCustomerPageUI.ADDRESS_TXT, key);
 	}
 
 	public void inputKeysCity(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.CITY_TXT);
-		sendKeyPress(CreateCustomerPageUI.CITY_TXT, key);
+		waitVisible(CreateCustomerPageUI.CITY_TXT);
+		inputKeyPress(CreateCustomerPageUI.CITY_TXT, key);
 	}
 
 	public void inputKeysState(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.STATE_TXT);
-		sendKeyPress(CreateCustomerPageUI.STATE_TXT, key);
+		waitVisible(CreateCustomerPageUI.STATE_TXT);
+		inputKeyPress(CreateCustomerPageUI.STATE_TXT, key);
 	}
 
 	public void inputKeysPin(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.PIN_TXT);
-		sendKeyPress(CreateCustomerPageUI.PIN_TXT, key);
+		waitVisible(CreateCustomerPageUI.PIN_TXT);
+		inputKeyPress(CreateCustomerPageUI.PIN_TXT, key);
 	}
 
 	public void inputKeysPhone(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.PHONE_TXT);
-		sendKeyPress(CreateCustomerPageUI.PHONE_TXT, key);
+		waitVisible(CreateCustomerPageUI.PHONE_TXT);
+		inputKeyPress(CreateCustomerPageUI.PHONE_TXT, key);
 	}
 
 	public void inputKeysEmail(Keys key) {
-		waitForControlVisible(CreateCustomerPageUI.EMAIL_TXT);
-		sendKeyPress(CreateCustomerPageUI.EMAIL_TXT, key);
+		waitVisible(CreateCustomerPageUI.EMAIL_TXT);
+		inputKeyPress(CreateCustomerPageUI.EMAIL_TXT, key);
 	}
 
 	public void inputDateOfBirth(String value) {
-		waitForControlVisible(CreateCustomerPageUI.DOB_DATEPICKER);
-		sendKeyToElement(CreateCustomerPageUI.DOB_DATEPICKER, value);
+		waitVisible(CreateCustomerPageUI.DOB_DATEPICKER);
+		input(CreateCustomerPageUI.DOB_DATEPICKER, value);
 	}
 
 	public void inputAddress(String value) {
-		waitForControlVisible(CreateCustomerPageUI.ADDRESS_TXT);
-		sendKeyToElement(CreateCustomerPageUI.ADDRESS_TXT, value);
+		waitVisible(CreateCustomerPageUI.ADDRESS_TXT);
+		input(CreateCustomerPageUI.ADDRESS_TXT, value);
 	}
 
 	public void inputCity(String value) {
-		waitForControlVisible(CreateCustomerPageUI.CITY_TXT);
-		sendKeyToElement(CreateCustomerPageUI.CITY_TXT, value);
+		waitVisible(CreateCustomerPageUI.CITY_TXT);
+		input(CreateCustomerPageUI.CITY_TXT, value);
 	}
 
 	public void inputState(String value) {
-		waitForControlVisible(CreateCustomerPageUI.STATE_TXT);
-		sendKeyToElement(CreateCustomerPageUI.STATE_TXT, value);
+		waitVisible(CreateCustomerPageUI.STATE_TXT);
+		input(CreateCustomerPageUI.STATE_TXT, value);
 	}
 
 	public void inputPin(String value) {
-		waitForControlVisible(CreateCustomerPageUI.PIN_TXT);
-		sendKeyToElement(CreateCustomerPageUI.PIN_TXT, value);
+		waitVisible(CreateCustomerPageUI.PIN_TXT);
+		input(CreateCustomerPageUI.PIN_TXT, value);
 	}
 
 	public void inputPhone(String value) {
-		waitForControlVisible(CreateCustomerPageUI.PHONE_TXT);
-		sendKeyToElement(CreateCustomerPageUI.PHONE_TXT, value);
+		waitVisible(CreateCustomerPageUI.PHONE_TXT);
+		input(CreateCustomerPageUI.PHONE_TXT, value);
 	}
 
 	public void inputEmail(String value) {
-		waitForControlVisible(CreateCustomerPageUI.EMAIL_TXT);
-		sendKeyToElement(CreateCustomerPageUI.EMAIL_TXT, value);
+		waitVisible(CreateCustomerPageUI.EMAIL_TXT);
+		input(CreateCustomerPageUI.EMAIL_TXT, value);
 	}
 
 	public void inputPassword(String value) {
-		waitForControlVisible(CreateCustomerPageUI.PASSWORD_TXT);
-		sendKeyToElement(CreateCustomerPageUI.PASSWORD_TXT, value);
+		waitVisible(CreateCustomerPageUI.PASSWORD_TXT);
+		input(CreateCustomerPageUI.PASSWORD_TXT, value);
 	}
 
 	public void clickSubmitButton() {
-		waitForControlVisible(CreateCustomerPageUI.SUBMIT_BTN);
-		clickToElement(CreateCustomerPageUI.SUBMIT_BTN);
+		waitVisible(CreateCustomerPageUI.SUBMIT_BTN);
+		click(CreateCustomerPageUI.SUBMIT_BTN);
 	}
 }

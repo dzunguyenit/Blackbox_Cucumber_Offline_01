@@ -12,8 +12,8 @@ public class NewAccountPage extends CommonFuntions {
 	}
 
 	public String getTextDeposit() {
-		waitForControlVisible(AccountUI.CURRENTDEPOSIT_LBL);
-		return getTextElement(AccountUI.CURRENTDEPOSIT_LBL);
+		waitVisible(AccountUI.CURRENTDEPOSIT_LBL);
+		return getText(AccountUI.CURRENTDEPOSIT_LBL);
 	}
 
 }

@@ -13,23 +13,23 @@ public class RegisterPage extends CommonFuntions {
 	}
 
 	public String getUserIDInfo() {
-		waitForControlVisible(RegisterPageUI.USER_ID_TEXT);
-		return getTextElement(RegisterPageUI.USER_ID_TEXT);
+		waitVisible(RegisterPageUI.USER_ID_TEXT);
+		return getText(RegisterPageUI.USER_ID_TEXT);
 	}
 
 	public String getPasswordIDInfo() {
-		waitForControlVisible(RegisterPageUI.PASSWORD_ID_TEXT);
-		return getTextElement(RegisterPageUI.PASSWORD_ID_TEXT);
+		waitVisible(RegisterPageUI.PASSWORD_ID_TEXT);
+		return getText(RegisterPageUI.PASSWORD_ID_TEXT);
 	}
 
 	public void inputEmail(String value) {
-		waitForControlVisible(RegisterPageUI.EMAIL_REGISTER_TXT);
-		sendKeyToElement(RegisterPageUI.EMAIL_REGISTER_TXT, value);
+		waitVisible(RegisterPageUI.EMAIL_REGISTER_TXT);
+		input(RegisterPageUI.EMAIL_REGISTER_TXT, value);
 	}
 
 	public void clickSubmitAccount() {
-		waitForControlVisible(RegisterPageUI.SUBMIT_BTN);
-		clickToElement(RegisterPageUI.SUBMIT_BTN);
+		waitVisible(RegisterPageUI.SUBMIT_BTN);
+		click(RegisterPageUI.SUBMIT_BTN);
 	}
 
 	public LoginPage openLoginPage(String url) {

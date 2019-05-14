@@ -17,8 +17,8 @@ public class LoginPage extends CommonFuntions {
 	}
 
 	public void inputEmailLogIn(String value) {
-		waitForControlVisible(LoginPageUI.EMAIL_LOGIN_TXT);
-		sendKeyToElement(LoginPageUI.EMAIL_LOGIN_TXT, value);
+		waitVisible(LoginPageUI.EMAIL_LOGIN_TXT);
+		input(LoginPageUI.EMAIL_LOGIN_TXT, value);
 	}
 
 	public void openLogInPage(String value) {
@@ -26,13 +26,13 @@ public class LoginPage extends CommonFuntions {
 	}
 
 	public void inputPasswordLogIn(String value) {
-		waitForControlVisible(LoginPageUI.PASSWORD_LOGIN_TXT);
-		sendKeyToElement(LoginPageUI.PASSWORD_LOGIN_TXT, value);
+		waitVisible(LoginPageUI.PASSWORD_LOGIN_TXT);
+		input(LoginPageUI.PASSWORD_LOGIN_TXT, value);
 	}
 
 	public HomePage clickLogIn() {
-		waitForControlVisible(LoginPageUI.LOGIN_BTN);
-		clickToElement(LoginPageUI.LOGIN_BTN);
+		waitVisible(LoginPageUI.LOGIN_BTN);
+		click(LoginPageUI.LOGIN_BTN);
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 
@@ -44,8 +44,8 @@ public class LoginPage extends CommonFuntions {
 		// e.printStackTrace();
 		// }
 		// }
-		waitForControlVisible(LoginPageUI.HERE_LINK);
-		clickToElement(LoginPageUI.HERE_LINK);
+		waitVisible(LoginPageUI.HERE_LINK);
+		click(LoginPageUI.HERE_LINK);
 		return PageFactory.initElements(driver, RegisterPage.class);
 	}
 

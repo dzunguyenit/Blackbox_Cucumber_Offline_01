@@ -12,8 +12,8 @@ public class DepositPage extends CommonFuntions {
 	}
 
 	public Boolean checkCurrentBalance(String currentBalance) {
-		waitForControlVisible(DepositUI.CURRENTDEPOSIT_LBL, currentBalance);
-		return isControlDisplayed(DepositUI.CURRENTDEPOSIT_LBL, currentBalance);
+		waitVisible(DepositUI.CURRENTDEPOSIT_LBL, currentBalance);
+		return isDisplayed(DepositUI.CURRENTDEPOSIT_LBL, currentBalance);
 	}
 
 }

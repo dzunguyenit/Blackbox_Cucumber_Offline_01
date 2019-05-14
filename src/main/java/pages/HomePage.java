@@ -16,8 +16,8 @@ public class HomePage extends CommonFuntions {
 	}
 
 	public RegisterPage clickHereLink() {
-		waitForControlVisible(LoginPageUI.HERE_LINK);
-		clickToElement(LoginPageUI.HERE_LINK);
+		waitVisible(LoginPageUI.HERE_LINK);
+		click(LoginPageUI.HERE_LINK);
 		return new RegisterPage(driver);
 	}
 
