@@ -69,7 +69,6 @@ public class CommonFuntions extends BasePage {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.click();
 		} catch (Exception e) {
-			LogFactory.error("Element is not clickable " + e.getMessage());
 		}
 
 	}
@@ -80,7 +79,6 @@ public class CommonFuntions extends BasePage {
 			WebElement element = driver.findElement(By.xpath(dynamicLocator));
 			element.click();
 		} catch (Exception e) {
-			LogFactory.error("Element is not clickable " + e.getMessage());
 		}
 	}
 
@@ -90,7 +88,6 @@ public class CommonFuntions extends BasePage {
 			String dynamicLocator = String.format(locator, (Object[]) value);
 			return getTextElement(dynamicLocator);
 		} catch (Exception e) {
-			LogFactory.error("Element is cann't get text " + e.getMessage());
 		}
 		return text;
 	}
@@ -102,7 +99,6 @@ public class CommonFuntions extends BasePage {
 			element.clear();
 			element.sendKeys(value);
 		} catch (Exception e) {
-			LogFactory.error("Element don't sendkeys " + e.getMessage());
 		}
 	}
 
@@ -118,7 +114,6 @@ public class CommonFuntions extends BasePage {
 			element.clear();
 			element.sendKeys(text);
 		} catch (Exception e) {
-			LogFactory.error("Element don't clear and sendkeys " + e.getMessage());
 		}
 	}
 
@@ -129,7 +124,6 @@ public class CommonFuntions extends BasePage {
 			element.clear();
 			element.sendKeys(key);
 		} catch (Exception e) {
-			LogFactory.error("Element don't clear and sendkeys " + e.getMessage());
 		}
 	}
 
@@ -139,7 +133,6 @@ public class CommonFuntions extends BasePage {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.sendKeys(text);
 		} catch (Exception e) {
-			LogFactory.error("Element don't sendkeys to dynamic textbox " + e.getMessage());
 		}
 	}
 
@@ -148,7 +141,6 @@ public class CommonFuntions extends BasePage {
 			WebElement element = driver.findElement(By.xpath(locator));
 			element.sendKeys(value);
 		} catch (Exception e) {
-			LogFactory.error("Element don't sendkeys textbox " + e.getMessage());
 		}
 	}
 
@@ -157,7 +149,6 @@ public class CommonFuntions extends BasePage {
 			Select element = new Select(driver.findElement(By.xpath(locator)));
 			element.selectByVisibleText(value);
 		} catch (Exception e) {
-			LogFactory.error("Element don't select combobox " + e.getMessage());
 		}
 	}
 
@@ -167,7 +158,6 @@ public class CommonFuntions extends BasePage {
 			Select element = new Select(driver.findElement(By.xpath(locator)));
 			element.selectByVisibleText(valueDropdown);
 		} catch (Exception e) {
-			LogFactory.error("Element don't select combobox " + e.getMessage());
 		}
 	}
 
@@ -183,211 +173,110 @@ public class CommonFuntions extends BasePage {
 				}
 			}
 		} catch (Exception e) {
-			LogFactory.error("Element don't select combobox special " + e.getMessage());
 		}
 
 	}
 
 	protected String getFirstItemSelected(String locator) {
-		String text = null;
-		try {
-			Select element = new Select(driver.findElement(By.xpath(locator)));
-			return element.getFirstSelectedOption().getText();
-		} catch (Exception e) {
-			LogFactory.error("Element cannot get First Item Selected " + e.getMessage());
-		}
-		return text;
+		Select element = new Select(driver.findElement(By.xpath(locator)));
+		return element.getFirstSelectedOption().getText();
 	}
 
 	protected String getAtribute(String locator, String attribute) {
-		String text = null;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.getAttribute(attribute);
-		} catch (Exception e) {
-			LogFactory.error("Element cannot get atribute " + e.getMessage());
-		}
-		return text;
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getAttribute(attribute);
 	}
 
 	protected String getTextElement(String locator) {
-		String text = null;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.getText();
-		} catch (Exception e) {
-			LogFactory.error("Element is cann't get text " + e.getMessage());
-		}
-		return text;
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getText();
 	}
 
 	protected String getTextDynamicElement(String locator, String... value) {
-		String text = null;
-		try {
-			locator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.getText();
-		} catch (Exception e) {
-			LogFactory.error("Element is cann't get text " + e.getMessage());
-		}
-		return text;
+		locator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.getText();
 	}
 
 	protected int getSize(String locator) {
-		int size = 0;
-		try {
-			List<WebElement> element = driver.findElements(By.xpath(locator));
-			return element.size();
-		} catch (Exception e) {
-			LogFactory.error("Element is cann't get size " + e.getMessage());
-		}
-		return size;
+		List<WebElement> element = driver.findElements(By.xpath(locator));
+		return element.size();
 	}
 
 	protected void uncheckTheCheckbox(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			if (element.isSelected())
-				element.click();
-		} catch (Exception e) {
-			LogFactory.error("Element is cann't uncheck checkbox " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		if (element.isSelected())
+			element.click();
 	}
 
 	protected boolean isControlDisplayed(String locator, String... value) {
-		boolean result = false;
-		try {
-			String dynamicLocator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(dynamicLocator));
-			return element.isDisplayed();
-		} catch (Exception e) {
-			LogFactory.error("Element cann't check element displayed " + e.getMessage());
-		}
-		return result;
+		String dynamicLocator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(dynamicLocator));
+		return element.isDisplayed();
 	}
 
 	protected boolean isControlDisplayed(String locator) {
-		boolean result = false;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.isDisplayed();
-		} catch (Exception e) {
-			LogFactory.error("Element cann't check element displayed " + e.getMessage());
-		}
-		return result;
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.isDisplayed();
 	}
 
 	protected boolean isControlSelected(String locator) {
-		boolean result = false;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.isSelected();
-		} catch (Exception e) {
-			LogFactory.error("Element cann't check element selected " + e.getMessage());
-		}
-		return result;
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.isSelected();
 	}
 
 	protected boolean isControlEnabled(String locator) {
-		boolean result = false;
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			return element.isEnabled();
-		} catch (Exception e) {
-			LogFactory.error("Element cann't check element enabled " + e.getMessage());
-		}
-		return result;
+		WebElement element = driver.findElement(By.xpath(locator));
+		return element.isEnabled();
 	}
 	// Alert
 
 	protected void acceptAlert(WebDriver driver) {
-		try {
-			Alert alert = driver.switchTo().alert();
-			alert.accept();
-		} catch (Exception e) {
-			LogFactory.error("Cann't accept alert " + e.getMessage());
-		}
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
 	}
 
 	protected void cancelAlert(WebDriver driver) {
-		try {
-			Alert alert = driver.switchTo().alert();
-			alert.dismiss();
-		} catch (Exception e) {
-			LogFactory.error("Cann't dismiss alert " + e.getMessage());
-		}
+		Alert alert = driver.switchTo().alert();
+		alert.dismiss();
 	}
 
 	protected String getTextAlert(WebDriver driver) {
-		String text = null;
-		try {
-			Alert alert = driver.switchTo().alert();
-			return alert.getText();
-		} catch (Exception e) {
-			LogFactory.error("Cann't get text alert " + e.getMessage());
-		}
-		return text;
+		Alert alert = driver.switchTo().alert();
+		return alert.getText();
 	}
 
 	protected void sendKeyAlert(String value) {
-		try {
-			Alert alert = driver.switchTo().alert();
-			alert.sendKeys(value);
-		} catch (Exception e) {
-			LogFactory.error("Cann't get sendKeys alert " + e.getMessage());
-		}
+		Alert alert = driver.switchTo().alert();
+		alert.sendKeys(value);
 	}
 
-	// Windows
-	protected void switchWindowByID(String parent) {
-		try {
-			Set<String> allWindows = driver.getWindowHandles();
-			for (String childWindows : allWindows) {
-				if (!childWindows.equals(parent)) {
-					driver.switchTo().window(childWindows);
-					break;
-				}
+	public void switchToWindowByTitle(String title) {
+		Set<String> allWindows = driver.getWindowHandles();
+		for (String childWindows : allWindows) {
+			driver.switchTo().window(childWindows);
+			String childTitle = driver.getTitle();
+			if (childTitle.equals(title)) {
+				break;
 			}
-		} catch (Exception e) {
-			LogFactory.error("Cann't switch window by ID " + e.getMessage());
-		}
-	}
-
-	protected void switchWindowByTitle(String title) {
-		try {
-			Set<String> allWindows = driver.getWindowHandles();
-			for (String childWindows : allWindows) {
-				driver.switchTo().window(childWindows);
-				String childTitle = driver.getTitle();
-				if (childTitle.equals(title)) {
-					break;
-				}
-			}
-		} catch (Exception e) {
-			LogFactory.error("Cann't switch window by Title " + e.getMessage());
 		}
 	}
 
 	// Bonus
-	protected boolean closeAllWindowsWithoutParent(String parent) {
-		try {
-			Set<String> allWindows = driver.getWindowHandles();
-			for (String childWindows : allWindows) {
-				if (!childWindows.equals(parent)) {
-					driver.switchTo().window(childWindows);
-					driver.close();
-				}
+	public boolean closeAllWindowsWithoutParent(String parent) {
+		Set<String> allWindows = driver.getWindowHandles();
+		for (String childWindows : allWindows) {
+			if (!childWindows.equals(parent)) {
+				driver.switchTo().window(childWindows);
+				driver.close();
 			}
-			driver.switchTo().window(parent);
-
-			if (driver.getWindowHandles().size() == 1)
-				return true;
-			else
-				return false;
-		} catch (Exception e) {
-			LogFactory.error("Cann't close all windows without parent " + e.getMessage());
-			return false;
 		}
+		driver.switchTo().window(parent);
+
+		if (driver.getWindowHandles().size() == 1)
+			return true;
+		else
+			return false;
 	}
 
 	protected String getWindowParentID(WebDriver driver) {
@@ -395,7 +284,6 @@ public class CommonFuntions extends BasePage {
 		try {
 			return driver.getWindowHandle();
 		} catch (Exception e) {
-			LogFactory.error("Cann't get window parentID " + e.getMessage());
 		}
 		return text;
 	}
@@ -406,7 +294,6 @@ public class CommonFuntions extends BasePage {
 			WebElement iframe = driver.findElement(By.xpath(locator));
 			driver.switchTo().frame(iframe);
 		} catch (Exception e) {
-			LogFactory.error("Cann't switch to iframe " + e.getMessage());
 		}
 	}
 
@@ -414,7 +301,6 @@ public class CommonFuntions extends BasePage {
 		try {
 			driver.switchTo().defaultContent();
 		} catch (Exception e) {
-			LogFactory.error("Cann't switch to default content " + e.getMessage());
 		}
 	}
 
@@ -425,7 +311,6 @@ public class CommonFuntions extends BasePage {
 			Actions action = new Actions(driver);
 			action.doubleClick(element).perform();
 		} catch (Exception e) {
-			LogFactory.error("Cann't double click " + e.getMessage());
 		}
 	}
 
@@ -435,304 +320,185 @@ public class CommonFuntions extends BasePage {
 			Actions action = new Actions(driver);
 			action.moveToElement(element).perform();
 		} catch (Exception e) {
-			LogFactory.error("Cann't hover mouse " + e.getMessage());
 		}
 	}
 
 	protected void hoverMouse(String locator, String... value) {
-		try {
-			String dynamicLocator = String.format(locator, (Object[]) value);
-			WebElement element = driver.findElement(By.xpath(dynamicLocator));
-			Actions action = new Actions(driver);
-			action.moveToElement(element).perform();
-		} catch (Exception e) {
-			LogFactory.error("Cann't hover mouse " + e.getMessage());
-		}
+		String dynamicLocator = String.format(locator, (Object[]) value);
+		WebElement element = driver.findElement(By.xpath(dynamicLocator));
+		Actions action = new Actions(driver);
+		action.moveToElement(element).perform();
 	}
 
 	protected void rightClick(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.contextClick(element).perform();
-		} catch (Exception e) {
-			LogFactory.error("Cann't right click " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.contextClick(element).perform();
 	}
 
 	protected void dragAndDrop(String locatorFrom, String locatorTarget) {
-		try {
-			WebElement dragFrom = driver.findElement(By.xpath(locatorFrom));
-			WebElement target = driver.findElement(By.xpath(locatorTarget));
-			Actions builder = new Actions(driver);
-			Action dragAndDropAction = builder.clickAndHold(dragFrom).moveToElement(target).release(target).build();
-			dragAndDropAction.perform();
-		} catch (Exception e) {
-			LogFactory.error("Cann't drag and drop " + e.getMessage());
-		}
+		WebElement dragFrom = driver.findElement(By.xpath(locatorFrom));
+		WebElement target = driver.findElement(By.xpath(locatorTarget));
+		Actions builder = new Actions(driver);
+		Action dragAndDropAction = builder.clickAndHold(dragFrom).moveToElement(target).release(target).build();
+		dragAndDropAction.perform();
 	}
 
 	// Bonus
 	protected void clickAndHold(int itemFrom, int itemTarget, String locator) {
-		try {
-			List<WebElement> listItems = driver.findElements(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.clickAndHold(listItems.get(itemFrom)).clickAndHold(listItems.get(itemTarget)).click().perform();
-			action.release();
-		} catch (Exception e) {
-			LogFactory.error("Cann't click and hold " + e.getMessage());
-		}
+		List<WebElement> listItems = driver.findElements(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.clickAndHold(listItems.get(itemFrom)).clickAndHold(listItems.get(itemTarget)).click().perform();
+		action.release();
 	}
 
 	// Key Press
 	protected void keyDownElement(String locator, Keys pressKeyDown) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.keyDown(element, pressKeyDown);
-		} catch (Exception e) {
-			LogFactory.error("Cann't click key Down " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.keyDown(element, pressKeyDown);
 	}
 
 	protected void keyUpElement(String locator, Keys pressKeyUp) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			Actions action = new Actions(driver);
-			action.keyUp(element, pressKeyUp);
-		} catch (Exception e) {
-			LogFactory.error("Cann't click key Up " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		Actions action = new Actions(driver);
+		action.keyUp(element, pressKeyUp);
 	}
 
 	protected void sendKeyPress(String locator, Keys key) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.sendKeys(key);
-		} catch (Exception e) {
-			LogFactory.error("Cann't sendKeys press " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.sendKeys(key);
 	}
 
 	protected void clearAndSendKeyPress(String locator, Keys key) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.clear();
-			element.sendKeys(key);
-		} catch (Exception e) {
-			LogFactory.error("Cann't clear and sendKeys press " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+		element.sendKeys(key);
 	}
 
 	// Upload
 	protected void uploadFile(String locator, String firePath) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			element.sendKeys(firePath);
-		} catch (Exception e) {
-			LogFactory.error("Cann't upload File by sendkeys " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.sendKeys(firePath);
 	}
 
 	// Javascript
 	protected Object executeJavascriptToBrowser(String javaSript) {
-		Object object = null;
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript(javaSript);
-		} catch (Exception e) {
-			LogFactory.error("Cann't execute javascript to browser " + e.getMessage());
-		}
-		return object;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		return js.executeScript(javaSript);
 	}
 
-	protected Object executeJavascriptToElement(String locator) {
-		Object object = null;
+	protected void executeJavascriptToElement(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript("arguments[0].click();", element);
-		} catch (Exception e) {
-			LogFactory.error("Cann't click by javascript " + e.getMessage());
-		}
-		return object;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
 	}
 
-	protected Object executeJavascriptToElement(String locator, String... value) {
-		Object object = null;
+	protected void executeJavascriptToElement(String locator, String... value) {
 		String dynamicLocator = String.format(locator, (Object[]) value);
 		WebElement element = driver.findElement(By.xpath(dynamicLocator));
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript("arguments[0].click();", element);
-		} catch (Exception e) {
-			LogFactory.error("Cann't click by javascript " + e.getMessage());
-		}
-		return object;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
 	}
 
-	protected Object scrollToBottomPage(WebDriver driver) {
-		Object object = null;
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
-		} catch (Exception e) {
-			LogFactory.error("Cann't scroll to bottom page " + e.getMessage());
-		}
-		return object;
+	protected void scrollToBottomPage(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 	}
 
-	protected Object scrollToElement(String locator) {
-		Object object = null;
+	protected void scrollToElement(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript("arguments[0].scrollIntoView(true);", element);
-		} catch (Exception e) {
-			LogFactory.error("Cann't scroll to element " + e.getMessage());
-		}
-		return object;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].scrollIntoView(true);", element);
 	}
 
 	// Bonus
 	protected void highlightElement(String locator) {
-		try {
-			WebElement element = driver.findElement(By.xpath(locator));
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			js.executeScript("arguments[0].style.border='6px groove red'", element);
-		} catch (Exception e) {
-			LogFactory.error("Cann't highlight element " + e.getMessage());
-		}
+		WebElement element = driver.findElement(By.xpath(locator));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].style.border='6px groove red'", element);
 	}
 
 	// Bonus
-	protected Object removeAttributeInDOM(String locator, String attribute) {
-		Object object = null;
+	protected void removeAttributeInDOM(String locator, String attribute) {
 		WebElement element = driver.findElement(By.xpath(locator));
-		try {
-			JavascriptExecutor js = (JavascriptExecutor) driver;
-			return js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
-		} catch (Exception e) {
-			LogFactory.error("Cann't remove attribute in DOM " + e.getMessage());
-		}
-		return object;
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].removeAttribute('" + attribute + "');", element);
 	}
 
 	// Wait
 	protected void waitForControlPresence(String locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(locator);
-			wait.until(ExpectedConditions.presenceOfElementLocated(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for control presence " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(locator);
+		wait.until(ExpectedConditions.presenceOfElementLocated(by));
 	}
 
 	protected void waitForControlVisible(String locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(locator);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for control visible " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(locator);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 
 	protected void waitForIframeVisible(String locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(locator);
-			wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for iframe visible " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(locator);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
 	}
 
 	protected void waitForControlVisible(String locator, String... value) {
-		try {
-			String dynamicLocator = String.format(locator, (Object[]) value);
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(dynamicLocator);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for control visible " + e.getMessage());
-		}
+		String dynamicLocator = String.format(locator, (Object[]) value);
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(dynamicLocator);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 
 	protected void waitForControlClickable(String locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(locator);
-			wait.until(ExpectedConditions.elementToBeClickable(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for control clickable " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(locator);
+		wait.until(ExpectedConditions.elementToBeClickable(by));
 	}
 
 	protected void waitForControlInvisible(String locator) {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			By by = By.xpath(locator);
-			wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for control invisible " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		By by = By.xpath(locator);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(by));
 	}
 
 	protected void waitForAlertPresence() {
-		try {
-			WebDriverWait wait = new WebDriverWait(driver, timeouts);
-			wait.until(ExpectedConditions.alertIsPresent());
-		} catch (Exception e) {
-			LogFactory.error("Cann't wait for alert presence " + e.getMessage());
-		}
+		WebDriverWait wait = new WebDriverWait(driver, timeouts);
+		wait.until(ExpectedConditions.alertIsPresent());
 	}
 
 	protected boolean sortElementAcsending(String locator) {
-		try {
-			List<WebElement> list = driver.findElements(By.xpath(locator));
-			int length = list.size();
-			for (int i = 0; i < length; i++) {
-				if (Integer.parseInt(list.get(i).getText()) <= Integer.parseInt(list.get(i + 1).getText())) {
-					return true;
-				}
+		List<WebElement> list = driver.findElements(By.xpath(locator));
+		int length = list.size();
+		for (int i = 0; i < length; i++) {
+			if (Integer.parseInt(list.get(i).getText()) <= Integer.parseInt(list.get(i + 1).getText())) {
+				return true;
 			}
-			return false;
-		} catch (Exception e) {
-			LogFactory.error("Cann't sort element acsending " + e.getMessage());
-			return false;
 		}
+		return false;
 	}
 
 	protected boolean sortElementDescending(String locator) {
-		try {
-			List<WebElement> list = driver.findElements(By.xpath(locator));
-			int length = list.size();
-			for (int i = 0; i < length; i++) {
-				if (Integer.parseInt(list.get(i).getText()) >= Integer.parseInt(list.get(i + 1).getText())) {
-					return true;
-				}
+		List<WebElement> list = driver.findElements(By.xpath(locator));
+		int length = list.size();
+		for (int i = 0; i < length; i++) {
+			if (Integer.parseInt(list.get(i).getText()) >= Integer.parseInt(list.get(i + 1).getText())) {
+				return true;
 			}
-			return false;
-		} catch (Exception e) {
-			LogFactory.error("Cann't sort element descending " + e.getMessage());
-			return false;
 		}
+		return false;
 	}
 
 	protected void swapElement(String locator) {
-		try {
-			List<WebElement> list = driver.findElements(By.xpath(locator));
-			int temp;
-			int position1 = Integer.parseInt(list.get(0).getText());
-			int position2 = Integer.parseInt(list.get(1).getText());
-			temp = position1;
-			position1 = position2;
-			position2 = temp;
-		} catch (Exception e) {
-			LogFactory.error("Cann't swap element " + e.getMessage());
-		}
+		List<WebElement> list = driver.findElements(By.xpath(locator));
+		int temp;
+		int position1 = Integer.parseInt(list.get(0).getText());
+		int position2 = Integer.parseInt(list.get(1).getText());
+		temp = position1;
+		position1 = position2;
+		position2 = temp;
 	}
 
 	protected boolean verifyEquals(Object actual, Object expected, boolean flag) {

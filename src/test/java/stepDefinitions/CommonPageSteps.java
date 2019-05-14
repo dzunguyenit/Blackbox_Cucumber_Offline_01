@@ -1,11 +1,9 @@
 package stepDefinitions;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.AbstractTest;
-import commons.Data;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -29,11 +27,6 @@ public class CommonPageSteps extends AbstractTest {
 		commonPage.clickDynamicButton(button);
 	}
 
-	@When("^Select with value \"(.*?)\" item in dynamic dropdow \"(.*?)\"$")
-	public void selectAcountTypeAndInputDeposit(String dataValue, String locator) {
-		commonPage.selectDynamicDropdown(dataValue, locator);
-	}
-
 	@When("^I get text UserID \"(.*?)\"$")
 	public void getTextUserID(String locator) {
 		userID = commonPage.getTextDynamicLabel(locator);
@@ -43,55 +36,6 @@ public class CommonPageSteps extends AbstractTest {
 	public void getTextDynamicLabel(String locator) {
 		accountID = commonPage.getTextDynamicLabel(locator);
 		System.out.println(accountID);
-	}
-
-	@When("^I input with variable data \"(.*?)\" to \"(.*?)\" textbox$")
-	public void clearAndInputDataDynamicTextbox(Data data, String locator) {
-		switch (data) {
-		case USERNAMELOGIN:
-			commonPage.clearAndInputDataWithDynamicTextbox(RegisterSteps.usernameLogin, locator);
-			break;
-		case PASSWORDLOGIN:
-			commonPage.clearAndInputDataWithDynamicTextbox(RegisterSteps.passwordLogin, locator);
-			break;
-		case ACCOUNTID:
-			commonPage.clearAndInputDataWithDynamicTextbox(accountID, locator);
-			break;
-		case ACCOUNTIDPAYEE:
-			commonPage.clearAndInputDataWithDynamicTextbox(String.valueOf((Integer.parseInt(accountID) - 1)), locator);
-			break;
-		case USERID:
-			commonPage.clearAndInputDataWithDynamicTextbox(userID, locator);
-			break;
-		case DEPOSITADD:
-			commonPage.clearAndInputDataWithDynamicTextbox(AddDepositSteps.depositAdd, locator);
-			break;
-		case MONNEYWITHDRAW:
-			commonPage.clearAndInputDataWithDynamicTextbox(monneyWithDraw, locator);
-			break;
-		case TABKEYS:
-			commonPage.clearAndInputKeyWithDynamicTextbox(Keys.TAB, locator);
-			break;
-		case SPACEKEYS:
-			commonPage.clearAndInputKeyWithDynamicTextbox(Keys.SPACE, locator);
-			break;
-		default:
-			break;
-		}
-	}
-
-	@When("^I input with data \"(.*?)\" to \"(.*?)\" textbox$")
-	public void clearAndInputDynamicTextbox(String dataValue, String locator) {
-		if (dataValue.equals("randomEmail"))
-			commonPage.clearAndInputDataWithDynamicTextbox(dataValue + randomEmail() + "@gmail.com", locator);
-		else
-			commonPage.clearAndInputDataWithDynamicTextbox(dataValue, locator);
-	}
-
-	@When("^I input date of birth with data \"(.*?)\" to \"(.*?)\"$")
-	public void inputDynamicTextbox(String dataValue, String locator) {
-//		commonPage.removeDateProperty("type");
-		commonPage.inputDataWithDynamicTextbox(dataValue, locator);
 	}
 
 	@Then("^Verify successfully with message \"(.*?)\"$")
