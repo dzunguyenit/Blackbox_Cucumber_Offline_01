@@ -8,7 +8,7 @@ Feature: Payment feature
 Scenario: Create account, login and verify login successfully 
 	Given I navigate to Guru bank and click Here link 
 	When I input email "randomEmail" 
-	And I click to submit button 
+	And I click to submit account 
 	And I get email and password 
 	And I navigate to Log In page "http://demo.guru99.com/v4/" 
 	And I log in system 

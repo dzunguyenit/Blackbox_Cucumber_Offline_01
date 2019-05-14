@@ -27,7 +27,7 @@ public class RegisterPage extends CommonFuntions {
 		sendKeyToElement(RegisterPageUI.EMAIL_REGISTER_TXT, value);
 	}
 
-	public void clickSubmit() {
+	public void clickSubmitAccount() {
 		waitForControlVisible(RegisterPageUI.SUBMIT_BTN);
 		clickToElement(RegisterPageUI.SUBMIT_BTN);
 	}

@@ -35,9 +35,9 @@ public class RegisterSteps extends AbstractTest {
 		registerPage.inputEmail(dataValue + randomEmail() + "@gmail.com");
 	}
 
-	@When("^I click to submit button$")
-	public void i_click_to_submit_button() {
-		registerPage.clickSubmit();
+	@When("^I click to submit account$")
+	public void i_clicktosubmit_button() {
+		registerPage.clickSubmitAccount();
 	}
 
 	@When("^I get email and password$")

@@ -106,6 +106,11 @@ public class CommonFuntions extends BasePage {
 		}
 	}
 
+	protected void clearElement(String locator) {
+		WebElement element = driver.findElement(By.xpath(locator));
+		element.clear();
+	}
+
 	protected void clearAndSendKeyToElementDynamicTextbox(String locator, String text, String... value) {
 		try {
 			locator = String.format(locator, (Object[]) value);

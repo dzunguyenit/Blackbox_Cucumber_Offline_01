@@ -1,4 +1,4 @@
-@createCustomer 
+@CreateCustomer 
 Feature: Create customer 
 	As an automation tester
   I want to create new customer
