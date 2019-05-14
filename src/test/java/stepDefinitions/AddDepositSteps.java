@@ -3,12 +3,12 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import commons.AbstractTest;
+import commons.CommonTestCase;
 import cucumber.api.java.en.Then;
 import cucumberOption.WebDriverManager;
 import pages.DepositPage;
 
-public class AddDepositSteps extends AbstractTest {
+public class AddDepositSteps extends CommonTestCase {
 	DepositPage depositPage;
 	WebDriver driver;
 	public static final String depositAdd = "5000";

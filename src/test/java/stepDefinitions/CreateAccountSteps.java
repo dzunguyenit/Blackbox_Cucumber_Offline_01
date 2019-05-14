@@ -3,12 +3,12 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import commons.AbstractTest;
+import commons.CommonTestCase;
 import cucumber.api.java.en.Then;
 import cucumberOption.WebDriverManager;
 import pages.NewAccountPage;
 
-public class CreateAccountSteps extends AbstractTest {
+public class CreateAccountSteps extends CommonTestCase {
 	private NewAccountPage newAccountPage;
 	WebDriver driver;
 	public static final String deposit = "50000";
@@ -22,7 +22,7 @@ public class CreateAccountSteps extends AbstractTest {
 
 	@Then("^Verify deposit with value \"(.*?)\"$")
 	public void verifyDepositWithValue(String depositMsg) {
-		verifyEquals(depositMsg, newAccountPage.getTextDeposit());
+		verifyEqual(depositMsg, newAccountPage.getTextDeposit());
 		depositInit = Integer.parseInt(deposit);
 	}
 }

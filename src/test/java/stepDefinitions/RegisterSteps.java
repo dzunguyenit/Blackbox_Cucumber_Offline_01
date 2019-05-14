@@ -3,14 +3,14 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import commons.AbstractTest;
+import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
 import pages.LoginPage;
 import pages.RegisterPage;
 
-public class RegisterSteps extends AbstractTest {
+public class RegisterSteps extends CommonTestCase {
 	LoginPage loginPage;
 	RegisterPage registerPage;
 	public static String usernameLogin;

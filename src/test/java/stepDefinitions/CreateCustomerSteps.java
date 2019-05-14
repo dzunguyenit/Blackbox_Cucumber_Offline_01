@@ -4,12 +4,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
-import commons.AbstractTest;
+import commons.CommonTestCase;
 import cucumber.api.java.en.When;
 import cucumberOption.WebDriverManager;
 import pages.CreateCustomerPage;
 
-public class CreateCustomerSteps extends AbstractTest {
+public class CreateCustomerSteps extends CommonTestCase {
 	CreateCustomerPage createCustomerPage;
 
 	WebDriver driver;
