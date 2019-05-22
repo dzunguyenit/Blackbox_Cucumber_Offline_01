@@ -7,7 +7,7 @@ import commons.CommonTestCase;
 import cucumber.api.java.en.When;
 import pages.LoginPage;
 
-public class LogInSteps {
+public class LogInSteps extends CommonTestCase {
 	LoginPage loginPage;
 	public static String usernameLogin;
 	public static String passwordLogin;

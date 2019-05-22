@@ -8,7 +8,7 @@ import cucumber.api.java.en.Then;
 import pages.NewAccountPage;
 
 public class CreateAccountSteps extends CommonTestCase {
-	private NewAccountPage newAccountPage;
+	NewAccountPage newAccountPage;
 	WebDriver driver;
 	public static final String deposit = "50000";
 	public static String accountID;
