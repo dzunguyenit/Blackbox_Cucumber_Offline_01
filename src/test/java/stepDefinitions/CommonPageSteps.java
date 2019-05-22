@@ -43,6 +43,11 @@ public class CommonPageSteps extends CommonTestCase {
 		verifyTrue(commonPage.isDynamicElementDisplayed(message));
 	}
 
+	@Then("^Close browser$")
+	public void closebrowser() {
+		WebDriverManager.closeBrowser();
+	}
+
 	@Then("^Verify (?:money transfer|current balance|money after withdraw) is \"(.*?)\"$")
 	public void verifyCurrentBalanceAfterTransferMoney(String money) {
 		verifyTrue(commonPage.isDynamicLabelDisplayed(money));

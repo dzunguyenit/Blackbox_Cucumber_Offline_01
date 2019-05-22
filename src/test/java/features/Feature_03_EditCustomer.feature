@@ -144,3 +144,4 @@ Scenario Outline: Edit customer with input numeric value name field
 													And I click to submit button 
 													And I update key space to email 
 													Then Verify successfully with message "First character can not have space" 
+													Then Close browser

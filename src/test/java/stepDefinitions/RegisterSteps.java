@@ -24,9 +24,8 @@ public class RegisterSteps extends CommonTestCase {
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 
-	@Given("^I navigate to Guru bank and click Here link$")
-	public void i_navigate_to_Guru_bank() {
-		loginURL = loginPage.getLoginPageUrl();
+	@Given("^I navigate to Guru bank \"(.*?)\" and click Here link$")
+	public void i_navigate_to_Guru_bank(String url) {
 		registerPage = loginPage.clickHereLink();
 	}
 

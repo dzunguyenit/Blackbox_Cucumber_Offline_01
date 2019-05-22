@@ -6,7 +6,7 @@ Feature: Payment feature
 
 @CreateAccountAndLogin 
 Scenario: Create account, login and verify login successfully 
-	Given I navigate to Guru bank and click Here link 
+	Given I navigate to Guru bank "http://demo.guru99.com/v4/" and click Here link 
 	When I input email "randomEmail" 
 	And I click to submit account 
 	And I get email and password 
