@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.When;
-import cucumberOption.WebDriverManager;
 import pages.CreateCustomerPage;
 
 public class CreateCustomerSteps extends CommonTestCase {
@@ -15,7 +14,7 @@ public class CreateCustomerSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public CreateCustomerSteps() {
-		driver = WebDriverManager.driver;
+		driver = CommonTestCase.driver;
 		createCustomerPage = PageFactory.initElements(driver, CreateCustomerPage.class);
 
 	}

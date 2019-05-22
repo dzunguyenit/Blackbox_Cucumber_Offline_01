@@ -6,7 +6,6 @@ import org.openqa.selenium.support.PageFactory;
 import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
-import cucumberOption.WebDriverManager;
 import pages.LoginPage;
 import pages.RegisterPage;
 
@@ -20,7 +19,7 @@ public class RegisterSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public RegisterSteps() {
-		driver = WebDriverManager.openBrowser();
+		driver = CommonTestCase.openBrowser();
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
 

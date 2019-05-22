@@ -7,7 +7,6 @@ import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumberOption.WebDriverManager;
 import pages.CommonPage;
 
 public class CommonPageSteps extends CommonTestCase {
@@ -18,7 +17,7 @@ public class CommonPageSteps extends CommonTestCase {
 	CommonPage commonPage;
 
 	public CommonPageSteps() {
-		driver = WebDriverManager.driver;
+		driver = CommonTestCase.driver;
 		commonPage = PageFactory.initElements(driver, CommonPage.class);
 	}
 
@@ -45,7 +44,7 @@ public class CommonPageSteps extends CommonTestCase {
 
 	@Then("^Close browser$")
 	public void closebrowser() {
-		WebDriverManager.closeBrowser();
+		CommonTestCase.closeBrowser();
 	}
 
 	@Then("^Verify (?:money transfer|current balance|money after withdraw) is \"(.*?)\"$")

@@ -3,8 +3,8 @@ package stepDefinitions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
+import commons.CommonTestCase;
 import cucumber.api.java.en.When;
-import cucumberOption.WebDriverManager;
 import pages.LoginPage;
 
 public class LogInSteps {
@@ -16,7 +16,7 @@ public class LogInSteps {
 	WebDriver driver;
 
 	public LogInSteps() {
-		driver = WebDriverManager.driver;
+		driver = CommonTestCase.driver;
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}

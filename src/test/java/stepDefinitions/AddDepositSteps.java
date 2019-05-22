@@ -5,7 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.Then;
-import cucumberOption.WebDriverManager;
 import pages.DepositPage;
 
 public class AddDepositSteps extends CommonTestCase {
@@ -16,7 +15,7 @@ public class AddDepositSteps extends CommonTestCase {
 	public static int sumDeposit;
 
 	public AddDepositSteps() {
-		driver = WebDriverManager.driver;
+		driver = CommonTestCase.driver;
 		depositPage = PageFactory.initElements(driver, DepositPage.class);
 	}
 

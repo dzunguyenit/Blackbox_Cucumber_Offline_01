@@ -5,7 +5,6 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.Then;
-import cucumberOption.WebDriverManager;
 import pages.NewAccountPage;
 
 public class CreateAccountSteps extends CommonTestCase {
@@ -16,7 +15,7 @@ public class CreateAccountSteps extends CommonTestCase {
 	public static int depositInit;
 
 	public CreateAccountSteps() {
-		driver = WebDriverManager.driver;
+		driver = CommonTestCase.driver;
 		newAccountPage = PageFactory.initElements(driver, NewAccountPage.class);
 	}
 
