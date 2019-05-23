@@ -176,6 +176,11 @@ public class CommonFuntions extends BasePage {
 		return element.isDisplayed();
 	}
 
+	public boolean checkElementDisplayed(String locator) {
+		Boolean isPresent = driver.findElements(By.xpath(locator)).size() > 0;
+		return isPresent;
+	}
+
 	protected boolean isSelected(String locator) {
 		WebElement element = driver.findElement(By.xpath(locator));
 		return element.isSelected();
