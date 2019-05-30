@@ -1,10 +1,11 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonFuntions;
-import interfaces.RegisterPageUI;
 
 public class RegisterPage extends CommonFuntions {
 
@@ -12,24 +13,36 @@ public class RegisterPage extends CommonFuntions {
 		super(driver);
 	}
 
+	@FindBy(xpath = "//input[@name='btnLogin']")
+	WebElement SUBMIT_BTN;
+
+	@FindBy(xpath = "//input[@name='emailid']")
+	WebElement EMAIL_REGISTER_TXT;
+
+	@FindBy(xpath = "//*[contains(text(),'User ID :')]/following-sibling::td")
+	WebElement USER_ID_TEXT;
+
+	@FindBy(xpath = "//*[contains(text(),'Password :')]/following-sibling::td")
+	WebElement PASSWORD_ID_TEXT;
+
 	public String getUserIDInfo() {
-		waitVisible(RegisterPageUI.USER_ID_TEXT);
-		return getText(RegisterPageUI.USER_ID_TEXT);
+		waitVisible(USER_ID_TEXT);
+		return getText(USER_ID_TEXT);
 	}
 
 	public String getPasswordIDInfo() {
-		waitVisible(RegisterPageUI.PASSWORD_ID_TEXT);
-		return getText(RegisterPageUI.PASSWORD_ID_TEXT);
+		waitVisible(PASSWORD_ID_TEXT);
+		return getText(PASSWORD_ID_TEXT);
 	}
 
 	public void inputEmail(String value) {
-		waitVisible(RegisterPageUI.EMAIL_REGISTER_TXT);
-		input(RegisterPageUI.EMAIL_REGISTER_TXT, value);
+		waitVisible(EMAIL_REGISTER_TXT);
+		input(EMAIL_REGISTER_TXT, value);
 	}
 
 	public void clickSubmitAccount() {
-		waitVisible(RegisterPageUI.SUBMIT_BTN);
-		click(RegisterPageUI.SUBMIT_BTN);
+		waitVisible(SUBMIT_BTN);
+		click(SUBMIT_BTN);
 	}
 
 	public LoginPage openLoginPage(String url) {

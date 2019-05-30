@@ -23,17 +23,17 @@ public class CommonPageSteps extends CommonTestCase {
 
 	@When("^I click to \"(.*?)\" button$")
 	public void i_click_to_dynamic_button_and_navigate_to_homepage(String button) {
-		commonPage.clickDynamicButton(button);
+		commonPage.click(button);
 	}
 
-	@When("^I get text UserID \"(.*?)\"$")
-	public void getTextUserID(String locator) {
-		userID = commonPage.getTextDynamicLabel(locator);
+	@When("^I get text UserID$")
+	public void getTextUserID() {
+		userID = commonPage.getUserID();
 	}
 
 	@When("^I get text dynamic label \"(.*?)\"$")
 	public void getTextDynamicLabel(String locator) {
-		accountID = commonPage.getTextDynamicLabel(locator);
+		accountID = commonPage.getTextDynamic(locator);
 		System.out.println(accountID);
 	}
 
@@ -47,34 +47,19 @@ public class CommonPageSteps extends CommonTestCase {
 		CommonTestCase.closeBrowser();
 	}
 
-	@Then("^Verify (?:money transfer|current balance|money after withdraw) is \"(.*?)\"$")
-	public void verifyCurrentBalanceAfterTransferMoney(String money) {
-		verifyTrue(commonPage.isDynamicLabelDisplayed(money));
-	}
+//	@Then("^Verify (?:money transfer|current balance|money after withdraw) is \"(.*?)\"$")
+//	public void verifyCurrentBalanceAfterTransferMoney(String money) {
+//		verifyTrue(commonPage.isDynamicLabelDisplayed(money));
+//	}
 
 	@Given("^I open \"(.*?)\" page$")
 	public void iOpenNewDynamicPage(String pageName) {
 		switch (pageName) {
 		case "New Customer":
-			commonPage.openNewCustomerPage(driver);
+			commonPage.openNewCustomerPage(pageName);
 			break;
 		case "Edit Customer":
-			commonPage.openEditCustomerPage(driver);
-			break;
-		case "New Account":
-			commonPage.openNewAccountPage(driver);
-			break;
-		case "Deposit":
-			commonPage.openDepositPage(driver);
-			break;
-		case "Withdrawal":
-			commonPage.openWithDrawPage(driver);
-			break;
-		case "Fund Transfer":
-			commonPage.openFundTransferPage(driver);
-			break;
-		case "Balance Enquiry":
-			commonPage.openBalanceEnquiryPage(driver);
+			commonPage.openEditCustomerPage(pageName);
 			break;
 		}
 	}

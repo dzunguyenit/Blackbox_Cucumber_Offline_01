@@ -1,9 +1,10 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import commons.CommonFuntions;
-import interfaces.LoginPageUI;
 
 public class HomePage extends CommonFuntions {
 
@@ -11,13 +12,12 @@ public class HomePage extends CommonFuntions {
 		super(driver);
 	}
 
-	public String getLoginPageUrl() {
-		return getCurrentUrl(driver);
-	}
+	@FindBy(xpath = "//a[contains(text(),'here')]")
+	WebElement HERE_LINK;
 
 	public RegisterPage clickHereLink() {
-		waitVisible(LoginPageUI.HERE_LINK);
-		click(LoginPageUI.HERE_LINK);
+		waitVisible(HERE_LINK);
+		click(HERE_LINK);
 		return new RegisterPage(driver);
 	}
 

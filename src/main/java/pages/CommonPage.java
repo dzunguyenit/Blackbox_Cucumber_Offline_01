@@ -1,107 +1,49 @@
 package pages;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 
 import commons.CommonFuntions;
-import interfaces.CommonPageUI;
 
 public class CommonPage extends CommonFuntions {
 	public CommonPage(WebDriver driver) {
 		super(driver);
 	}
 
-	public String getTextDynamic(String massage) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, massage);
-		return getTextDynamicElement(CommonPageUI.DYNAMIC_MSG, massage);
+	@FindBy(xpath = "//*[contains(text(),'Customer ID')]//following-sibling::td")
+	WebElement CUSTOMER_ID_LBL;
+
+	@FindBy(xpath = "//input[@name='name']")
+	WebElement CUSTOMERNAME_TXT;
+
+	public String getDynamicMesage(String value) {
+		waitVisibleDynamic(value);
+		return getTextDynamic(value);
 	}
 
-	public void removeDateProperty(String attribute) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG);
-		removeAttributeInDOM(CommonPageUI.DYNAMIC_MSG, attribute);
+	public void clickDynamic(String value) {
+		waitVisibleDynamic(value);
+		click(value);
 	}
 
-	public boolean isDynamicElementDisplayed(String massage) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, massage);
-		return isDisplayed(CommonPageUI.DYNAMIC_MSG, massage);
+	public boolean isDynamicElementDisplay(String massage) {
+		waitVisibleDynamic(massage);
+		return isDynamicElementDisplayed(massage);
 	}
 
-	public boolean isDynamicLabelDisplayed(String massage) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, massage);
-		return isDisplayed(CommonPageUI.DYNAMIC_MSG, massage);
+	public void openNewCustomerPage(String value) {
+		waitVisibleDynamic(value);
+		click(value);
 	}
 
-	public void clickDynamicButton(String button) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, button);
-		click(CommonPageUI.DYNAMIC_MSG, button);
+	public void openEditCustomerPage(String value) {
+		waitVisibleDynamic(value);
+		click(value);
 	}
 
-	public void clearAndInputDataWithDynamicTextbox(String dataValue, String textboxName) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, textboxName);
-		clearAndInputDynamicTextbox(CommonPageUI.DYNAMIC_MSG, dataValue, textboxName);
-	}
-
-	public void clearAndInputKeyWithDynamicTextbox(Keys key, String textboxName) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, textboxName);
-		clearAndInputPressToElementDynamicTextbox(CommonPageUI.DYNAMIC_MSG, key, textboxName);
-	}
-
-	public void inputDataWithDynamicTextbox(String dataValue, String textboxName) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, textboxName);
-		input(CommonPageUI.DYNAMIC_MSG, dataValue, textboxName);
-	}
-
-	public String getTextDynamicLabel(String labelName) {
-		waitVisible(CommonPageUI.DYNAMIC_USERID_MSG, labelName);
-		return getTextDynamicElement(CommonPageUI.DYNAMIC_USERID_MSG, labelName);
-	}
-
-	public void selectDynamicDropdown(String dataValue, String dropdownName) {
-		waitVisible(CommonPageUI.DYNAMIC_MSG, dropdownName);
-		selectComboboxDynamicDropdown(CommonPageUI.DYNAMIC_MSG, dataValue, dropdownName);
-	}
-
-	public void openNewCustomerPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "New Customer");
-		click(CommonPageUI.DYNAMIC_PAGES, "New Customer");
-	}
-
-	public void openEditCustomerPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Edit Customer");
-		click(CommonPageUI.DYNAMIC_PAGES, "Edit Customer");
-	}
-
-	public HomePage openHomePage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Manager");
-		click(CommonPageUI.DYNAMIC_PAGES, "Manager");
-		return PageFactory.initElements(driver, HomePage.class);
-	}
-
-	public NewAccountPage openNewAccountPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "New Account");
-		click(CommonPageUI.DYNAMIC_PAGES, "New Account");
-		return PageFactory.initElements(driver, NewAccountPage.class);
-	}
-
-	public DepositPage openDepositPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Deposit");
-		click(CommonPageUI.DYNAMIC_PAGES, "Deposit");
-		return PageFactory.initElements(driver, DepositPage.class);
-	}
-
-	public void openWithDrawPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Withdrawal");
-		click(CommonPageUI.DYNAMIC_PAGES, "Withdrawal");
-	}
-
-	public void openFundTransferPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Fund Transfer");
-		click(CommonPageUI.DYNAMIC_PAGES, "Fund Transfer");
-	}
-
-	public void openBalanceEnquiryPage(WebDriver driver) {
-		waitVisible(CommonPageUI.DYNAMIC_PAGES, "Balance Enquiry");
-		click(CommonPageUI.DYNAMIC_PAGES, "Balance Enquiry");
+	public String getUserID() {
+		waitVisible(CUSTOMER_ID_LBL);
+		return getText(CUSTOMER_ID_LBL);
 	}
 }

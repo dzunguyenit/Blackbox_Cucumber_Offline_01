@@ -152,7 +152,6 @@ Scenario Outline: Create customer with input numeric value name field
 													
 												@TC_28_CreateCustomerSuccessfully 
 												Scenario Outline: Create new Customer and get NewCustomerID 
-													Given I open "New Customer" page 
 													When I input with data "<CustomerName>" to customer name 
 													When I input with data "<DateOfBirth>" to date of birth 
 													When I input with data "<Address>" to address 
@@ -164,7 +163,7 @@ Scenario Outline: Create customer with input numeric value name field
 													When I input with data "<Password>" to password 
 													And I click submit button 
 													Then Verify successfully with message "Customer Registered Successfully!!!" 
-													And I get text UserID "Customer ID" 
+													And I get text UserID
 													
 													Examples: 
 														| CustomerName | DateOfBirth | Address | City    | State   | PIN    | Phone      | Email       | Password   |

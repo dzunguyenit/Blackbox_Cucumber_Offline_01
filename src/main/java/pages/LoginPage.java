@@ -1,10 +1,11 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonFuntions;
-import interfaces.LoginPageUI;
 
 public class LoginPage extends CommonFuntions {
 
@@ -12,13 +13,21 @@ public class LoginPage extends CommonFuntions {
 		super(driver);
 	}
 
-	public String getLoginPageUrl() {
-		return getCurrentUrl(driver);
-	}
+	@FindBy(xpath = "//*[@name='uid']")
+	WebElement EMAIL_LOGIN_TXT;
+
+	@FindBy(xpath = "//a[contains(text(),'here')]")
+	WebElement HERE_LINK;
+
+	@FindBy(xpath = "//input[@name='password']")
+	WebElement PASSWORD_TXT;
+
+	@FindBy(xpath = "//input[@name='btnLogin']")
+	WebElement LOGIN_BTN;
 
 	public void inputEmailLogIn(String value) {
-		waitVisible(LoginPageUI.EMAIL_LOGIN_TXT);
-		input(LoginPageUI.EMAIL_LOGIN_TXT, value);
+		waitVisible(EMAIL_LOGIN_TXT);
+		input(EMAIL_LOGIN_TXT, value);
 	}
 
 	public void openLogInPage(String value) {
@@ -26,13 +35,13 @@ public class LoginPage extends CommonFuntions {
 	}
 
 	public void inputPasswordLogIn(String value) {
-		waitVisible(LoginPageUI.PASSWORD_LOGIN_TXT);
-		input(LoginPageUI.PASSWORD_LOGIN_TXT, value);
+		waitVisible(PASSWORD_TXT);
+		input(PASSWORD_TXT, value);
 	}
 
 	public HomePage clickLogIn() {
-		waitVisible(LoginPageUI.LOGIN_BTN);
-		click(LoginPageUI.LOGIN_BTN);
+		waitVisible(LOGIN_BTN);
+		click(LOGIN_BTN);
 		return PageFactory.initElements(driver, HomePage.class);
 	}
 
@@ -44,8 +53,8 @@ public class LoginPage extends CommonFuntions {
 		// e.printStackTrace();
 		// }
 		// }
-		waitVisible(LoginPageUI.HERE_LINK);
-		click(LoginPageUI.HERE_LINK);
+		waitVisible(HERE_LINK);
+		click(HERE_LINK);
 		return PageFactory.initElements(driver, RegisterPage.class);
 	}
 
