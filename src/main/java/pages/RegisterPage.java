@@ -13,16 +13,16 @@ public class RegisterPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//input[@name='btnLogin']")
+	@FindBy(name = "btnLogin")
 	WebElement SUBMIT_BTN;
 
-	@FindBy(xpath = "//input[@name='emailid']")
+	@FindBy(name = "emailid")
 	WebElement EMAIL_REGISTER_TXT;
 
-	@FindBy(xpath = "//*[contains(text(),'User ID :')]/following-sibling::td")
+	@FindBy(xpath = "//td[contains(text(),'User ID :')]/following-sibling::td")
 	WebElement USER_ID_TEXT;
 
-	@FindBy(xpath = "//*[contains(text(),'Password :')]/following-sibling::td")
+	@FindBy(xpath = "//td[contains(text(),'Password :')]/following-sibling::td")
 	WebElement PASSWORD_ID_TEXT;
 
 	public String getUserIDInfo() {

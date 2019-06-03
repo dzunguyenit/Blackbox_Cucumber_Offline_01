@@ -14,7 +14,7 @@ public class CommonPage extends CommonFuntions {
 	@FindBy(xpath = "//*[contains(text(),'Customer ID')]//following-sibling::td")
 	WebElement CUSTOMER_ID_LBL;
 
-	@FindBy(xpath = "//input[@name='name']")
+	@FindBy(name = "name")
 	WebElement CUSTOMERNAME_TXT;
 
 	public String getDynamicMesage(String value) {

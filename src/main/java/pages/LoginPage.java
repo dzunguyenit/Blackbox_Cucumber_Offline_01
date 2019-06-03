@@ -13,16 +13,16 @@ public class LoginPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//*[@name='uid']")
+	@FindBy(name = "uid")
 	WebElement EMAIL_LOGIN_TXT;
 
-	@FindBy(xpath = "//a[contains(text(),'here')]")
+	@FindBy(css = "a[href='http://demo.guru99.com/']")
 	WebElement HERE_LINK;
 
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(name = "password")
 	WebElement PASSWORD_TXT;
 
-	@FindBy(xpath = "//input[@name='btnLogin']")
+	@FindBy(name = "btnLogin")
 	WebElement LOGIN_BTN;
 
 	public void inputEmailLogIn(String value) {

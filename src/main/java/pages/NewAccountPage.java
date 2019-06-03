@@ -12,7 +12,7 @@ public class NewAccountPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//*[contains(text(),'Current Amount')]/following-sibling::td")
+	@FindBy(xpath = "//td[contains(text(),'Current Amount')]/following-sibling::td")
 	WebElement CURRENTDEPOSIT_LBL;
 
 	public String getTextDeposit() {

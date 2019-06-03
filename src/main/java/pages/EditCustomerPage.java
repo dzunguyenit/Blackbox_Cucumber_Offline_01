@@ -13,34 +13,34 @@ public class EditCustomerPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//input[@name='name']")
+	@FindBy(name = "name")
 	WebElement CUSTOMERNAME_TXT;
 
-	@FindBy(xpath = "//input[@id='dob']")
+	@FindBy(id = "dob")
 	WebElement DATEOFBIRTH_TXT;
 
-	@FindBy(xpath = "//textarea[contains(@name,'addr')]")
+	@FindBy(name = "addr")
 	WebElement ADDRESS_TXTAREA;
 
-	@FindBy(xpath = "//input[@name='city']")
+	@FindBy(name = "city")
 	WebElement CITY_TXT;
 
-	@FindBy(xpath = "//input[@name='state']")
+	@FindBy(name = "state")
 	WebElement STATE_TXT;
 
-	@FindBy(xpath = "//input[@name='pinno']")
+	@FindBy(name = "pinno")
 	WebElement PIN_TXT;
 
-	@FindBy(xpath = "//input[@name='telephoneno']")
+	@FindBy(name = "telephoneno")
 	WebElement MOBILENUMBER_TXT;
 
-	@FindBy(xpath = "//input[@name='emailid']")
+	@FindBy(name = "emailid")
 	WebElement EMAIL_TXT;
 
-	@FindBy(xpath = "//input[@name='password']")
+	@FindBy(name = "password")
 	WebElement PASSWORD_TXT;
 
-	@FindBy(xpath = "//input[@name='sub']")
+	@FindBy(name = "sub")
 	WebElement SUBMIT_BTN;
 
 	@FindBy(xpath = "//p[contains(text(),'Customer Registered Successfully!!!')]")
@@ -49,10 +49,10 @@ public class EditCustomerPage extends CommonFuntions {
 	@FindBy(xpath = "//td[text()='Customer ID']/following-sibling::td")
 	WebElement CUSTOMERID_LBL;
 
-	@FindBy(xpath = "//input[@name='cusid']")
+	@FindBy(name = "cusid")
 	WebElement CUSTOMERID_TXT;
 
-	@FindBy(xpath = "//input[@name='AccSubmit']")
+	@FindBy(name = "AccSubmit")
 	WebElement SUBMITOEDIT_BTN;
 
 	@FindBy(xpath = "//p[contains(text(),'Customer details updated Successfully!!!')]")
