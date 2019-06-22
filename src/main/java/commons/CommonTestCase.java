@@ -5,24 +5,32 @@ import java.util.Random;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import io.github.bonigarcia.wdm.ChromeDriverManager;
+import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 public class CommonTestCase {
 	public static WebDriver driver;
 
 	public static WebDriver openBrowser() {
-//		String browser = System.getProperty("BROWSER");
-//		String version = System.getProperty("VERSION");
-//		String url = System.getProperty("URL");
-//		String browser = "chrome";
-		String version = "2.46";
-		String url = "http://demo.guru99.com/v4/";
-		ChromeDriverManager.getInstance().version(version).setup();
-		driver = new ChromeDriver();
+		String browser = System.getProperty("browser");
+		String version = System.getProperty("version");
+		String url = System.getProperty("url");
+//		String browser = "firefox";
+//		String version = "0.21.0";
+//		String url = "http://demo.guru99.com/v4/";
+		if (browser.equals("chrome")) {
+			ChromeDriverManager.getInstance().version(version).setup();
+			driver = new ChromeDriver();
+		} else if (browser.equals("firefox")) {
+			FirefoxDriverManager.getInstance().version(version).setup();
+			driver = new FirefoxDriver();
+		}
 		driver.get(url);
 		driver.manage().window().maximize();
+
 		return driver;
 	}
 
