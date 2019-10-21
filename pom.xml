@@ -116,8 +116,8 @@
 						</goals>
 						<configuration>
 							<projectName>JAVA CUCUMBER REPORT - BANK GURU</projectName>
-							<outputDirectory>${project.build.directory}/site/cucumber-reports</outputDirectory>
-							<cucumberOutput>${project.build.directory}/site/cucumber.json</cucumberOutput>
+							<outputDirectory>${project.build.directory}/cucumber-reports</outputDirectory>
+							<cucumberOutput>${project.build.directory}/cucumber.json</cucumberOutput>
 							<enableFlashCharts>true</enableFlashCharts>
 							<skippedFails>true</skippedFails>
 						</configuration>
