@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
+import config.Browser;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
@@ -15,12 +16,12 @@ public class CommonTestCase {
 	public static WebDriver driver;
 
 	public static WebDriver openBrowser() {
-		String browser = System.getProperty("browser");
-		String version = System.getProperty("version");
-		String url = System.getProperty("url");
-//		String browser = "firefox";
-//		String version = "0.21.0";
-//		String url = "http://demo.guru99.com/v4/";
+//		String browser = System.getProperty("browser");
+//		String version = System.getProperty("version");
+//		String url = System.getProperty("url");
+		String browser = Browser.CHROME.getBrowser();
+		String version = "78.0.3904.105";
+		String url = "http://demo.guru99.com/v4/";
 		if (browser.equals("chrome")) {
 			ChromeDriverManager.getInstance().version(version).setup();
 			driver = new ChromeDriver();
