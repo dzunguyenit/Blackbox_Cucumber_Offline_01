@@ -20,7 +20,7 @@ public class CommonTestCase {
 //		String version = System.getProperty("version");
 //		String url = System.getProperty("url");
 		String browser = Browser.CHROME.getBrowser();
-		String version = "78.0.3904.105";
+		String version = "83.0.4103.39";
 		String url = "http://demo.guru99.com/v4/";
 		if (browser.equals("chrome")) {
 			ChromeDriverManager.getInstance().version(version).setup();

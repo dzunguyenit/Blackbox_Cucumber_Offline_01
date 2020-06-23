@@ -7,12 +7,12 @@ Feature: Payment feature
 @CreateAccountAndLogin 
 Scenario: Create account, login and verify login successfully 
 	Given I navigate to Guru bank and click Here link 
-	When I input email "randomEmail" 
-	And I click to submit account 
-	And I get email and password 
-	And I navigate to Log In page "http://demo.guru99.com/v4/" 
-	And I log in system 
-	Then Verify successfully with message "Welcome To Manager" 
+	* I input email "randomEmail" 
+	* I click to submit account 
+	* I get email and password 
+	* I navigate to Log In page "http://demo.guru99.com/v4/" 
+	* I log in system 
+	* Verify successfully with message "Welcome To Manager" 
 	
 	#@newCustomer 
 	#Scenario Outline: Create new Customer and get NewCustomerID 

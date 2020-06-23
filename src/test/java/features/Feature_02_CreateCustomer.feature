@@ -10,7 +10,7 @@ Background: User to navigate to Create customer page
 @TC_01_Create_NameCannotEmpty 
 Scenario: Create customer with empty customer name 
 	When I input key tab to customer name 
-	Then Verify successfully with message "Customer name must not be blank" 
+	* Verify successfully with message "Customer name must not be blank" 
 	
 @TC_02_03_Create_NameCannotBeNumberic 
 Scenario Outline: Create customer with input numeric value name field 
@@ -24,8 +24,8 @@ Scenario Outline: Create customer with input numeric value name field
 		
 		@TC_04_Create_NameCannotFirstCharacterBlankSpace 
 		Scenario: Create customer with input first character blank space name field 
-			When I input key space to customer name 
-			Then Verify successfully with message "First character can not have space" 
+			* I input key space to customer name 
+			* Verify successfully with message "First character can not have space" 
 			
 		@TC_05_Create_AddressCannotEmpty 
 		Scenario: Create customer with empty address field 
@@ -34,8 +34,8 @@ Scenario Outline: Create customer with input numeric value name field
 			
 		@TC_06_Create_AddressCannotFirstCharacterBlankSpace 
 		Scenario: Create customer with input first character blank space address field 
-			When I input key space to address 
-			Then Verify successfully with message "First character can not have space" 
+			* I input key space to address 
+			* Verify successfully with message "First character can not have space" 
 			
 		@TC_07_Create_CityCannotEmpty 
 		Scenario: Create customer with empty address field 

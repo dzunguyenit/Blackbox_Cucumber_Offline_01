@@ -10,13 +10,13 @@ Background: User to navigate to Edit customer page
 @TC_01_Edit_NameCannotEmpty 
 Scenario: Edit customer with empty customer id 
 	When I input key tab to customer id 
-	Then Verify successfully with message "Customer ID is required" 
+	* Verify successfully with message "Customer ID is required" 
 	
 	
 @TC_02_03_Edit_CustomerIdCannotBeNumberic 
 Scenario Outline: Edit customer with input numeric value name field 
 	When I input data "<Customer ID>" to customer id 
-	Then Verify successfully with message "<Message>" 
+	* Verify successfully with message "<Message>" 
 	
 	Examples: 
 		| Customer ID | Message |
@@ -59,17 +59,17 @@ Scenario Outline: Edit customer with input numeric value name field
 				@TC_12_Edit_StateCannotEmpty 
 				Scenario: Edit customer with input special value customer ID field 
 					When I input customer id 
-					And I click to submit button 
-					And I update key tab to state 
-					Then Verify successfully with message "State must not be blank" 
+					* I click to submit button 
+					* I update key tab to state 
+					* Verify successfully with message "State must not be blank" 
 					
 					
 				@TC_13_14_Edit_StateCannotBeNumberic 
 				Scenario Outline: Edit customer with input numeric value name field 
 					When I input customer id 
-					And I click to submit button 
-					When I update data "<State>" to state 
-					Then Verify successfully with message "<Message>" 
+					* I click to submit button 
+					* I update data "<State>" to state 
+					* Verify successfully with message "<Message>" 
 					
 					Examples: 
 						| State | Message |
