@@ -15,7 +15,7 @@ public class CreateAccountSteps extends CommonTestCase {
 	public static int depositInit;
 
 	public CreateAccountSteps() {
-		driver = CommonTestCase.driver;
+		driver = CommonTestCase.getDriver();
 		newAccountPage = PageFactory.initElements(driver, NewAccountPage.class);
 	}
 

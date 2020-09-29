@@ -16,7 +16,7 @@ public class LogInSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public LogInSteps() {
-		driver = CommonTestCase.driver;
+		driver = CommonTestCase.getDriver();
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
 	}

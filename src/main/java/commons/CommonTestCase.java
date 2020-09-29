@@ -13,7 +13,7 @@ import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.FirefoxDriverManager;
 
 public class CommonTestCase {
-	public static WebDriver driver;
+	private static WebDriver driver;
 
 	public static WebDriver openBrowser() {
 //		String browser = System.getProperty("browser");
@@ -24,19 +24,19 @@ public class CommonTestCase {
 		String url = "http://demo.guru99.com/v4/";
 		if (browser.equals("chrome")) {
 			ChromeDriverManager.getInstance().version(version).setup();
-			driver = new ChromeDriver();
+			setDriver(new ChromeDriver());
 		} else if (browser.equals("firefox")) {
 			FirefoxDriverManager.getInstance().version(version).setup();
-			driver = new FirefoxDriver();
+			setDriver(new FirefoxDriver());
 		}
-		driver.get(url);
-		driver.manage().window().maximize();
+		getDriver().get(url);
+		getDriver().manage().window().maximize();
 
-		return driver;
+		return getDriver();
 	}
 
 	public static void closeBrowser() {
-		driver.quit();
+		getDriver().quit();
 	}
 
 	public static String randomUniqueNumber() {
@@ -61,6 +61,14 @@ public class CommonTestCase {
 
 	public void verifyFalse(Boolean condition) {
 		Assert.assertFalse(condition);
+	}
+
+	public static WebDriver getDriver() {
+		return driver;
+	}
+
+	public static void setDriver(WebDriver driver) {
+		CommonTestCase.driver = driver;
 	}
 
 }

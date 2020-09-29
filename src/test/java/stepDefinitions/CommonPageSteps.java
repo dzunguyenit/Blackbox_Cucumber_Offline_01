@@ -17,7 +17,7 @@ public class CommonPageSteps extends CommonTestCase {
 	CommonPage commonPage;
 
 	public CommonPageSteps() {
-		driver = CommonTestCase.driver;
+		driver = CommonTestCase.getDriver();
 		commonPage = PageFactory.initElements(driver, CommonPage.class);
 	}
 

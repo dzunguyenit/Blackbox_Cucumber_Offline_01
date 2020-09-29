@@ -14,7 +14,7 @@ public class CreateCustomerSteps extends CommonTestCase {
 	WebDriver driver;
 
 	public CreateCustomerSteps() {
-		driver = CommonTestCase.driver;
+		driver = CommonTestCase.getDriver();
 		createCustomerPage = PageFactory.initElements(driver, CreateCustomerPage.class);
 
 	}
