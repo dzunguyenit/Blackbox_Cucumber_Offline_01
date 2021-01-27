@@ -11,8 +11,7 @@ public class CommonPage extends CommonFuntions {
 		super(driver);
 	}
 
-	@FindBy(xpath = "//*[contains(text(),'Customer ID')]//following-sibling::td")
-	WebElement CUSTOMER_ID_LBL;
+
 
 	@FindBy(name = "name")
 	WebElement CUSTOMERNAME_TXT;
@@ -42,8 +41,5 @@ public class CommonPage extends CommonFuntions {
 		click(value);
 	}
 
-	public String getUserID() {
-		waitVisible(CUSTOMER_ID_LBL);
-		return getText(CUSTOMER_ID_LBL);
-	}
+	
 }

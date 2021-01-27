@@ -12,7 +12,6 @@ import pages.CommonPage;
 public class CommonPageSteps extends CommonTestCase {
 	WebDriver driver;
 	public static String accountID;
-	public static String userID;
 	public static final String monneyWithDraw = "15000";
 	CommonPage commonPage;
 
@@ -24,11 +23,6 @@ public class CommonPageSteps extends CommonTestCase {
 	@When("^I click to \"(.*?)\" button$")
 	public void i_click_to_dynamic_button_and_navigate_to_homepage(String button) {
 		commonPage.click(button);
-	}
-
-	@When("^I get text UserID$")
-	public void getTextUserID() {
-		userID = commonPage.getUserID();
 	}
 
 	@When("^I get text dynamic label \"(.*?)\"$")

@@ -6,19 +6,20 @@ import org.openqa.selenium.support.PageFactory;
 import commons.CommonTestCase;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
+import model.State;
 import pages.LoginPage;
 import pages.RegisterPage;
 
 public class RegisterSteps extends CommonTestCase {
 	LoginPage loginPage;
 	RegisterPage registerPage;
-	public static String usernameLogin;
-	public static String passwordLogin;
-	public static String loginURL;
+
+	private State state;
 
 	WebDriver driver;
 
-	public RegisterSteps() {
+	public RegisterSteps(State state) {
+		this.state = state;
 		driver = CommonTestCase.openBrowser();
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 	}
@@ -40,8 +41,8 @@ public class RegisterSteps extends CommonTestCase {
 
 	@When("^I get email and password$")
 	public void i_input_email_to_register() {
-		usernameLogin = registerPage.getUserIDInfo();
-		passwordLogin = registerPage.getPasswordIDInfo();
+		state.getAccount().setUsername(registerPage.getUserIDInfo());
+		state.getAccount().setPassword(registerPage.getPasswordIDInfo());
 	}
 
 //	@When("^I open login page$")

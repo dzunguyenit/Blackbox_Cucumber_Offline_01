@@ -6,16 +6,21 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.When;
+import model.State;
 import pages.CreateCustomerPage;
+import pages.EditCustomerPage;
 
 public class CreateCustomerSteps extends CommonTestCase {
 	CreateCustomerPage createCustomerPage;
-
+	EditCustomerPage editCustomerPage;
 	WebDriver driver;
+	private State state;
 
-	public CreateCustomerSteps() {
+	public CreateCustomerSteps(State state) {
+		this.state = state;
 		driver = CommonTestCase.getDriver();
 		createCustomerPage = PageFactory.initElements(driver, CreateCustomerPage.class);
+		editCustomerPage = PageFactory.initElements(driver, EditCustomerPage.class);
 
 	}
 
@@ -167,6 +172,18 @@ public class CreateCustomerSteps extends CommonTestCase {
 	@When("^I click submit button$")
 	public void clickSubmit() throws Exception {
 		createCustomerPage.clickSubmitButton();
+	}
+
+	@When("^I get text UserID$")
+	public void getTextUserID() {
+		state.getAccount().setUserId(createCustomerPage.getUserID());
+		System.out.println("IDDDDDDDDD=  " + createCustomerPage.getUserID());
+		System.out.println("IDDDDDDDDD= fate " + state.getAccount().getUserId());
+	}
+
+	@When("^I input customer id$")
+	public void inputKeyTabCustomerId() {
+		editCustomerPage.inputDataCustomerId(state.getAccount().getUserId());
 	}
 
 }

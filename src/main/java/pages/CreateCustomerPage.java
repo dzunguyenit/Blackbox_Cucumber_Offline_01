@@ -61,6 +61,9 @@ public class CreateCustomerPage extends CommonFuntions {
 	@FindBy(xpath = "//p[contains(text(),'Customer details updated Successfully!!!')]")
 	WebElement UPDATESUCCESS_LBL;
 
+	@FindBy(xpath = "//*[contains(text(),'Customer ID')]//following-sibling::td")
+	WebElement CUSTOMER_ID_LBL;
+
 	public void inputCustomerName(String value) {
 		waitVisible(CUSTOMERNAME_TXT);
 		input(CUSTOMERNAME_TXT, value);
@@ -144,5 +147,10 @@ public class CreateCustomerPage extends CommonFuntions {
 	public void clickSubmitButton() {
 		waitVisible(SUBMIT_BTN);
 		click(SUBMIT_BTN);
+	}
+
+	public String getUserID() {
+		waitVisible(CUSTOMER_ID_LBL);
+		return getText(CUSTOMER_ID_LBL);
 	}
 }

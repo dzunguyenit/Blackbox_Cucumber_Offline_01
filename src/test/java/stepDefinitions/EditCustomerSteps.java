@@ -74,11 +74,6 @@ public class EditCustomerSteps extends CommonTestCase {
 		editCustomerPage.inputKeysCustomerId(Keys.TAB);
 	}
 
-	@When("^I input customer id$")
-	public void inputKeyTabCustomerId() {
-		editCustomerPage.inputDataCustomerId(CommonPageSteps.userID);
-	}
-
 	@When("^I update key space to customer name$")
 	public void updateKeySpaceCustomerName() {
 		editCustomerPage.updateKeysCustomerName(Keys.SPACE);

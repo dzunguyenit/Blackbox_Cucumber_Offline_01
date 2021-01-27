@@ -5,17 +5,18 @@ import org.openqa.selenium.support.PageFactory;
 
 import commons.CommonTestCase;
 import cucumber.api.java.en.When;
+import model.State;
 import pages.LoginPage;
 
 public class LogInSteps extends CommonTestCase {
 	LoginPage loginPage;
-	public static String usernameLogin;
-	public static String passwordLogin;
-	public static String loginURL;
+
+	private State state;
 
 	WebDriver driver;
 
-	public LogInSteps() {
+	public LogInSteps(State state) {
+		this.state = state;
 		driver = CommonTestCase.getDriver();
 		loginPage = PageFactory.initElements(driver, LoginPage.class);
 
@@ -28,8 +29,8 @@ public class LogInSteps extends CommonTestCase {
 
 	@When("^I log in system$")
 	public void clearAndInputDynamicTextbox() {
-		loginPage.inputEmailLogIn(RegisterSteps.usernameLogin);
-		loginPage.inputPasswordLogIn(RegisterSteps.passwordLogin);
+		loginPage.inputEmailLogIn(state.getAccount().getUsername());
+		loginPage.inputPasswordLogIn(state.getAccount().getPassword());
 		loginPage.clickLogIn();
 	}
 
